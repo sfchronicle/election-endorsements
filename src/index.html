@@ -9,12 +9,14 @@
 </div>
 
 <div class="nav-hed">What are you looking for?</div>
-<div class="nav">
+<div id="stick-here"></div>
+<div class="nav" id="stick-me">
   <div class="nav-element"><a href="#state">State</a></div>
   <div class="nav-element"><a href="#region">Region</a></div>
   <div class="nav-element"><a href="#sanfrancisco">San Francisco</a></div>
-  <div class="nav-element"><a href="#judiciart">Judiciary</a></div>
+  <div class="nav-element"><a href="#judiciary">Judiciary</a></div>
 </div>
+<div id="stick-ph"></div>
 
 <div class="section-hed" id="state">State</div>
 
@@ -24,7 +26,13 @@
     <div class="race"><%=d.Race%></div>
     <div class="sentence"><%=d.Summary%></div>
     <div class="recommends">The Chronicle recommends</div>
-    <div class="recommendation"><%=d.Endorsement%></div>
+    <% if (d.Endorsement == "Yes") { %>
+      <div class="recommendation"><i class="fa fa-check"></i><%=d.Endorsement%></div>
+    <% } else if (d.Endorsement == "No") { %>
+      <div class="recommendation"><i class="fa fa-times"></i><%=d.Endorsement%></div>
+    <% } else { %>
+      <div class="recommendation"><%=d.Endorsement%></div>
+    <% } %>
     <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
   </div>
 <% }); %>
@@ -38,7 +46,13 @@
     <div class="race"><%=d.Race%></div>
     <div class="sentence"><%=d.Summary%></div>
     <div class="recommends">The Chronicle recommends</div>
-    <div class="recommendation"><%=d.Endorsement%></div>
+    <% if (d.Endorsement == "Yes") { %>
+      <div class="recommendation"><i class="fa fa-check"></i><%=d.Endorsement%></div>
+    <% } else if (d.Endorsement == "No") { %>
+      <div class="recommendation"><i class="fa fa-times"></i><%=d.Endorsement%></div>
+    <% } else { %>
+      <div class="recommendation"><%=d.Endorsement%></div>
+    <% } %>
     <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
   </div>
 <% }); %>
@@ -52,7 +66,13 @@
     <div class="race"><%=d.Race%></div>
     <div class="sentence"><%=d.Summary%></div>
     <div class="recommends">The Chronicle recommends</div>
-    <div class="recommendation"><%=d.Endorsement%></div>
+    <% if (d.Endorsement == "Yes") { %>
+      <div class="recommendation"><i class="fa fa-check"></i><%=d.Endorsement%></div>
+    <% } else if (d.Endorsement == "No") { %>
+      <div class="recommendation"><i class="fa fa-times"></i><%=d.Endorsement%></div>
+    <% } else { %>
+      <div class="recommendation"><%=d.Endorsement%></div>
+    <% } %>
     <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
   </div>
 <% }); %>
@@ -63,10 +83,16 @@
 <div class="endorsements-container">
 <% json.sf_chronicle_endorsements_list.judiciary.forEach(function(d) { %>
   <div class="endorsements-box">
-    <div class="race"><%=d.Race%></div>
+    <div class="race"><%=d.County%></div>
     <div class="sentence"><%=d.Summary%></div>
     <div class="recommends">The Chronicle recommends</div>
-    <div class="recommendation"><%=d.Endorsement%></div>
+    <% if (d.Endorsement == "Yes") { %>
+      <div class="recommendation"><i class="fa fa-check"></i><%=d.Endorsement%></div>
+    <% } else if (d.Endorsement == "No") { %>
+      <div class="recommendation"><i class="fa fa-times"></i><%=d.Endorsement%></div>
+    <% } else { %>
+      <div class="recommendation"><%=d.Endorsement%></div>
+    <% } %>
     <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
   </div>
 <% }); %>
