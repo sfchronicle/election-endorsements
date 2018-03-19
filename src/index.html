@@ -1,0 +1,77 @@
+<%= t.include("partials/_head.html") %>
+
+<div class="top-container">
+  <div class="title">Voter Guide</div>
+  <div class="intro">
+    <div class="intro-line">The Chronicle urges all eligible voters to take part in the Nov. 8 election. For your consideration before you fill out your ballot, here are the recommendations of The Chronicle Editorial Board. Find comprehensive campaign and election coverage at our Election 2016 page. For details on how and where to vote, see <a href="http://www.sos.ca.gov/elections/where-and-how/" target="_blank">the state's website</a>.</div>
+    <div class="intro-line">To print this guide, click here.</div>
+  </div>
+</div>
+
+<div class="nav-hed">What are you looking for?</div>
+<div class="nav">
+  <div class="nav-element"><a href="#state">State</a></div>
+  <div class="nav-element"><a href="#region">Region</a></div>
+  <div class="nav-element"><a href="#sanfrancisco">San Francisco</a></div>
+  <div class="nav-element"><a href="#judiciart">Judiciary</a></div>
+</div>
+
+<div class="section-hed" id="state">State</div>
+
+<div class="endorsements-container">
+<% json.sf_chronicle_endorsements_list.state.forEach(function(d) { %>
+  <div class="endorsements-box">
+    <div class="race"><%=d.Race%></div>
+    <div class="sentence"><%=d.Summary%></div>
+    <div class="recommends">The Chronicle recommends</div>
+    <div class="recommendation"><%=d.Endorsement%></div>
+    <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+  </div>
+<% }); %>
+</div>
+
+<div class="section-hed" id="region">Region</div>
+
+<div class="endorsements-container">
+<% json.sf_chronicle_endorsements_list.region.forEach(function(d) { %>
+  <div class="endorsements-box">
+    <div class="race"><%=d.Race%></div>
+    <div class="sentence"><%=d.Summary%></div>
+    <div class="recommends">The Chronicle recommends</div>
+    <div class="recommendation"><%=d.Endorsement%></div>
+    <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+  </div>
+<% }); %>
+</div>
+
+<div class="section-hed" id="sanfrancisco">San Francisco</div>
+
+<div class="endorsements-container">
+<% json.sf_chronicle_endorsements_list.sf.forEach(function(d) { %>
+  <div class="endorsements-box">
+    <div class="race"><%=d.Race%></div>
+    <div class="sentence"><%=d.Summary%></div>
+    <div class="recommends">The Chronicle recommends</div>
+    <div class="recommendation"><%=d.Endorsement%></div>
+    <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+  </div>
+<% }); %>
+</div>
+
+<div class="section-hed" id="judiciary">Judiciary</div>
+
+<div class="endorsements-container">
+<% json.sf_chronicle_endorsements_list.judiciary.forEach(function(d) { %>
+  <div class="endorsements-box">
+    <div class="race"><%=d.Race%></div>
+    <div class="sentence"><%=d.Summary%></div>
+    <div class="recommends">The Chronicle recommends</div>
+    <div class="recommendation"><%=d.Endorsement%></div>
+    <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+  </div>
+<% }); %>
+</div>
+
+
+<script src="app.js" async></script>
+<%= t.include("partials/_footer.html") %>
