@@ -35,3 +35,51 @@ function activate() {
 }
 
 window.onscroll = function() {activate()};
+
+
+
+// var navID = document.getElementById("nav");
+// var navposition = 400;//document.getElementById("link-nav").offsetTop+40;
+// var profile_idx = -1;
+// var a,b,c,d,e,f,concdiv;
+// window.onload = function () {
+//   var window_top = document.body.scrollTop-30;
+//   a = document.getElementById('profileiain').getBoundingClientRect().top + window_top;
+//   b = document.getElementById('profilelauren').getBoundingClientRect().top + window_top;
+//   c = document.getElementById('profilehilary').getBoundingClientRect().top + window_top;
+//   d = document.getElementById('profilejorge').getBoundingClientRect().top + window_top;
+//   e = document.getElementById('profilebalint').getBoundingClientRect().top + window_top;
+//   f = document.getElementById('profilegreg').getBoundingClientRect().top + window_top;
+//   scroll = [a,b,c,d,e,f];
+//   concdiv= document.getElementById('conclusion').getBoundingClientRect().top + window_top;
+// }
+//
+// var y;
+// var navDisplay = function() {
+//   // var y = window.scrollY;
+//   y = $(window).scrollTop();
+//   if (y >= navposition) {
+//     navID.className = "fixed show";
+//   } else {
+//     navID.className = "fixed hide";
+//   }
+//   if (y > concdiv || y < a) {
+//     for (var i=0; i<6; i++) {
+//       document.getElementById("prof-link-"+shortkeyList[i]).classList.remove('activelink');
+//     }
+//   } else {
+//     for (var i = 0; i < 6; i++) {
+//       if (y > scroll[i]) {
+//         profile_idx = i;
+//       }
+//     }
+//     if (shortkeyList[profile_idx]){
+//       for (var i=0; i<6; i++) {
+//         document.getElementById("prof-link-"+shortkeyList[i]).classList.remove('activelink');
+//       }
+//       document.getElementById("prof-link-"+shortkeyList[profile_idx]).classList.add('activelink');
+//     }
+//   }
+// };
+// window.addEventListener("scroll", navDisplay);
+//
