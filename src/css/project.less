@@ -19,24 +19,32 @@
 .nav-hed {
   font-family: @block-graphics;
   text-align: center;
-  padding-top: 20px;
+  padding: 20px 0 10px 0;
+  font-size: 18px;
 }
 
 .nav {
   margin: auto;
   text-align: center;
   font-family: @block-graphics;
-  padding: 10px 0;
+  // padding: 10px 0;
   padding-top: 0;
   .nav-element {
+    padding: 0 20px;
+    padding-top: 5px;
     display: inline-block;
+    vertical-align: text-bottom;
     text-transform: uppercase;
     font-size: 17px;
     border-bottom: 3px solid @highlight;
     font-family: @bold-graphics;
     margin: 0 10px;
+    height: 37px;
     a {
       text-decoration: none;
+    }
+    &.activelink {
+      background: lighten(@light-gray,10%);
     }
   }
 }
@@ -77,13 +85,22 @@
       font-size: 16px;
     }
     .recommends {
+      font-family: @bold-graphics;
       text-transform: uppercase;
-      font-size: 14px;
+      font-size: 13px;
       padding-top: 20px;
+    }
+    .recommendation-line {
+      font-family: @med-graphics;
+      font-size: 16px;
+      padding: 10px 0;
+      line-height: 1.2;
+      // color: @dark-gray;
     }
     .recommendation {
       font-family: @bold-graphics;
       color: lighten(@green2,5%);
+      font-size: 22px;
       .fa {
         padding-right: 5px;
       }
