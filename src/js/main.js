@@ -12,7 +12,7 @@ $(document).on('click', 'a[href^="#"]', function(e) {
     // prevent standard hash navigation (avoid blinking in IE)
     e.preventDefault();
     // top position relative to the document
-    var pos = $(id).offset().top - 80;
+    var pos = $(id).offset().top - 40;
     // animated top scrolling
     $('body, html').animate({scrollTop: pos});
 });
@@ -20,7 +20,7 @@ $(document).on('click', 'a[href^="#"]', function(e) {
 var navID = document.getElementById("nav");
 var profile_idx = -1;
 var a,b,c,d;
-var navoffset = 70;
+var navoffset = 0;
 
 // find positions for the different section heds
 window.onload = function () {
@@ -31,7 +31,7 @@ window.onload = function () {
   scroll = [a,b,c,d];
 }
 
-// scroll function
+// scroll
 var y, section_idx;
 function activate() {
   var sticker = document.getElementById('stick-me');
@@ -45,13 +45,13 @@ function activate() {
     for (var i=0; i<scroll.length; i++) {
       document.getElementById("nav-element"+i).classList.remove('activelink');
     }
-    sticker.classList.remove('fixed-second');
-    sticker_ph.style.display = 'none'; // removes placeholder
+    // sticker.classList.remove('fixed-second');
+    // sticker_ph.style.display = 'none'; // removes placeholder
 
   // fix secondary nav and highlight section in nav
   } else if (window_top > div_top) {
-      sticker.classList.add('fixed-second');
-      sticker_ph.style.display = 'block'; // puts in a placeholder for where sticky used to be for smooth scrolling
+      // sticker.classList.add('fixed-second');
+      // sticker_ph.style.display = 'block'; // puts in a placeholder for where sticky used to be for smooth scrolling
 
       // hide all active links if reader is at top of page
       if (window_top >= a) {

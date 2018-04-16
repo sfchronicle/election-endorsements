@@ -18,68 +18,47 @@
 </div>
 <div id="stick-ph"></div>
 
-<div class="section-hed" id="state">State</div>
-
 <div class="endorsements-container">
-<% json.sf_chronicle_endorsements_list.state.forEach(function(d) { %>
-  <div class="endorsements-box">
-    <div class="race"><%=d.Race%></div>
-    <div class="sentence"><%=d.Summary%></div>
-    <div class="recommends">The Chronicle recommends</div>
-    <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> for <%=d.Race%></div>
-    <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-  </div>
+<% json.sf_chronicle_endorsements_list.endorsements.forEach(function(d) { %>
+  <% if (d.Race){ %>
+    <div class="endorsements-box">
+      <div class="race"><%=d.Race%></div>
+      <div class="sentence"><%=d.Summary%></div>
+      <div class="recommends">The Chronicle recommends</div>
+      <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> for <%=d.Race%></div>
+      <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+    </div>
+  <% } else if (d.Measure){ %>
+    <div class="endorsements-box">
+        <div class="race"><%=d.Measure%></div>
+        <div class="sentence"><%=d.Summary%></div>
+        <div class="recommends">The Chronicle recommends</div>
+        <% if (d.Endorsement == "Yes") { %>
+          <div class="recommendation-line"><span class="recommendation"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
+        <% } else if (d.Endorsement == "No") { %>
+          <div class="recommendation-line"><span class="recommendation"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
+        <% } else { %>
+          <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> on <%=d.Measure%></div>
+        <% } %>
+        <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+      </div>
+  <% } else if (d.County){ %>
+    <div class="endorsements-box">
+      <div class="race"><%=d.County%></div>
+      <div class="sentence"><%=d.Summary%></div>
+      <div class="recommends">The Chronicle recommends</div>
+      <% if (d.Endorsement == "Yes") { %>
+        <div class="recommendation-line"><span class="recommendation"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+      <% } else if (d.Endorsement == "No") { %>
+        <div class="recommendation-line"><span class="recommendation"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+      <% } else { %>
+        <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+      <% } %>
+      <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+    </div>
+  <% } %>
 <% }); %>
 </div>
-
-<div class="section-hed" id="region">Region</div>
-
-<div class="endorsements-container">
-<% json.sf_chronicle_endorsements_list.region.forEach(function(d) { %>
-  <div class="endorsements-box">
-    <div class="race"><%=d.Measure%></div>
-    <div class="sentence"><%=d.Summary%></div>
-    <div class="recommends">The Chronicle recommends</div>
-    <% if (d.Endorsement == "Yes") { %>
-      <div class="recommendation-line"><span class="recommendation"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
-    <% } else if (d.Endorsement == "No") { %>
-      <div class="recommendation-line"><span class="recommendation"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
-    <% } else { %>
-      <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> on <%=d.Measure%></div>
-    <% } %>
-    <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-  </div>
-<% }); %>
-</div>
-
-<div class="section-hed" id="sanfrancisco">San Francisco</div>
-
-<div class="endorsements-container">
-<% json.sf_chronicle_endorsements_list.sf.forEach(function(d) { %>
-  <div class="endorsements-box">
-    <div class="race"><%=d.Race%></div>
-    <div class="sentence"><%=d.Summary%></div>
-    <div class="recommends">The Chronicle recommends</div>
-    <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> for <%=d.Race%></div>
-    <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-  </div>
-<% }); %>
-</div>
-
-<div class="section-hed" id="judiciary">Judiciary</div>
-
-<div class="endorsements-container">
-<% json.sf_chronicle_endorsements_list.judiciary.forEach(function(d) { %>
-  <div class="endorsements-box">
-    <div class="race"><%=d.County%></div>
-    <div class="sentence"><%=d.Summary%></div>
-    <div class="recommends">The Chronicle recommends</div>
-    <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
-    <div class="link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-  </div>
-<% }); %>
-</div>
-
 
 <script src="app.js" async></script>
 <%= t.include("partials/_footer.html") %>
