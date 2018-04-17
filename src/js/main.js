@@ -4,7 +4,7 @@ var pos = $(".button-container").offset().top - 40;
 
 // if reader clicks on "SF" region, show appropriate sub-regions and filter
 document.getElementById("button-state").addEventListener("click",function(){
-  $(".button").removeClass("active");
+  $(".nav-filter-button").removeClass("active");
   $(this).addClass("active");
   $(".endorsements-box").removeClass("active");
   $(".State").addClass("active");
@@ -12,7 +12,7 @@ document.getElementById("button-state").addEventListener("click",function(){
 });
 
 document.getElementById("button-region").addEventListener("click",function(){
-  $(".button").removeClass("active");
+  $(".nav-filter-button").removeClass("active");
   $(this).addClass("active");
   $(".endorsements-box").removeClass("active");
   $(".Region").addClass("active");
@@ -20,7 +20,7 @@ document.getElementById("button-region").addEventListener("click",function(){
 });
 
 document.getElementById("button-sf").addEventListener("click",function(){
-  $(".button").removeClass("active");
+  $(".nav-filter-button").removeClass("active");
   $(this).addClass("active");
   $(".endorsements-box").removeClass("active");
   $(".SF").addClass("active");
@@ -28,7 +28,7 @@ document.getElementById("button-sf").addEventListener("click",function(){
 });
 
 document.getElementById("button-judiciary").addEventListener("click",function(){
-  $(".button").removeClass("active");
+  $(".nav-filter-button").removeClass("active");
   $(this).addClass("active");
   $(".endorsements-box").removeClass("active");
   $(".Judiciary").addClass("active");
@@ -36,7 +36,7 @@ document.getElementById("button-judiciary").addEventListener("click",function(){
 });
 
 document.getElementById("button-all").addEventListener("click",function(){
-  $(".button").removeClass("active");
+  $(".nav-filter-button").removeClass("active");
   $(this).addClass("active");
   $(".endorsements-box").addClass("active");
   $('body, html').animate({scrollTop: pos});
