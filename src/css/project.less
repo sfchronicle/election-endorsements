@@ -2,6 +2,9 @@
 .title {
   font-family: @bold-graphics;
   margin-top: 50px;
+  @media @mobile {
+    font-size: 40px;
+  }
 }
 
 .intro {
@@ -14,6 +17,26 @@
   .intro-line {
     padding: 5px 0;
   }
+  @media @mobile {
+    font-size: 16px;
+    text-align: left;
+    padding: 0 10px;
+  }
+}
+
+.editorial-link {
+  background: @highlight;
+  font-family: @bold-graphics;
+  color: white;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  padding: 5px 10px;
+  margin: 10px;
+  &:hover {
+    background: darken(@highlight,20%);
+  }
 }
 
 .nav-hed {
@@ -23,28 +46,42 @@
   font-size: 18px;
 }
 
-.nav {
+.button-container {
   margin: auto;
+  margin-bottom: 30px;
   text-align: center;
   font-family: @block-graphics;
   // padding: 10px 0;
   padding-top: 0;
-  .nav-element {
-    padding: 0 20px;
-    padding-top: 5px;
+  @media @mobile {
+    margin: 0 10px 20px 10px;
+  }
+  .nav-filter-button {
+    padding: 5px 20px;
     display: inline-block;
     vertical-align: text-bottom;
     text-transform: uppercase;
     font-size: 17px;
-    border-bottom: 3px solid @highlight;
+    background: @highlight;
+    color: white;
     font-family: @bold-graphics;
-    margin: 0 10px;
-    height: 37px;
+    cursor: pointer;
+    // margin: 0 10px;
+    // height: 37px;
+    &:hover {
+      background: darken(@highlight,20%);
+    }
+    &.active {
+      background: darken(@highlight,20%);
+    }
     a {
       text-decoration: none;
     }
-    &.activelink {
-      background: lighten(@light-gray,10%);
+    @media @mobile {
+      height: auto;
+      font-size: 15px;
+      padding: 5px 10px;
+      margin: 2px 1px;
     }
   }
 }
@@ -72,14 +109,26 @@
   .endorsements-box {
     .flex(0 0 48%);
     margin: 20px auto 0 auto;
-    background: lighten(@light-gray,17%);
-    padding: 20px;
+    // background: lighten(@light-gray,17%);
+    padding: 30px;
     text-align: center;
+    border: 1px solid @light-gray;
+    display: none;
+    @media @mobile {
+      .flex(0 0 90%);
+      padding: 0;
+    }
+    &.active {
+      display: block;
+    }
     .race {
       font-family: @bold-graphics;
       font-size: 24px;
       padding-bottom: 5px;
       line-height: 1;
+      @media @mobile {
+        padding: 10px;
+      }
     }
     .sentence {
       font-family: @med-graphics;
@@ -97,6 +146,9 @@
       // padding: 10px 0;
       line-height: 1.2;
       // color: @dark-gray;
+      @media @mobile {
+        padding: 0 10px;
+      }
     }
     .recommendation {
       font-family: @bold-graphics;
@@ -105,29 +157,32 @@
       .fa {
         padding-right: 5px;
       }
+      &.No {
+        color: @red;
+      }
     }
-    // .link {
-    //   font-style: italic;
-    // }
   }
 }
 
-// .fixed-second {
-//   position: fixed;
-//   top: 37px;
-//   width: 100%;
-//   z-index: 99;
-//   left: 0;
-//   background: lighten(@tan,4%);
-//   -webkit-box-shadow: 0 0 6px 0 @dark-gray;
-//   -moz-box-shadow: 0 0 6px 0 @dark-gray;
-//   box-shadow: 0 0 6px 0 @dark-gray;
-//   height: 37px;
-//   .nav-element {
-//     border-bottom: 0;
-//   }
-// }
+.see-more-mobile {
+  font-size: 16px;
+  color: @dark-gray;
+  background: lighten(#d7d7d7,10%);
+  cursor: pointer;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  // display: none;
+  // @media @mobile {
+  //   display: block;
+  // }
+}
 
-#stick-ph {
-  height: 37px;
+.extras-wrapper {
+  // @media @mobile {
+    display: none;
+  // }
+  &.show {
+    display: block;
+  }
 }
