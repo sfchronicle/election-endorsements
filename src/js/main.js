@@ -2,6 +2,9 @@ require("./lib/social"); //Do not delete
 
 var pos = $(".button-container").offset().top - 40;
 
+// make all links open in new tab
+$('a[href^="http"]').attr('target','_blank');
+
 // if reader clicks on "SF" region, show appropriate sub-regions and filter
 document.getElementById("button-state").addEventListener("click",function(){
   $(".nav-filter-button").removeClass("active");
