@@ -3,6 +3,9 @@
 <script src="//projects.sfchronicle.com/shared/js/responsive-frame.js"></script>
 
 <div class="top-container">
+  <div class="election-banner">
+    <img src="../assets/graphics/Election2018banner.png">
+  </div>
   <div class="title">Voter Guide</div>
   <div class="intro">
     <div class="intro-line">The Chronicle urges all eligible voters to take part in the June 5 election. These are The Chronicle Editorial Board's recommendations, for your consideration before you fill out a ballot. Find comprehensive campaign and election coverage at our <a href="https://www.sfchronicle.com/elections/" target="_blank">Election 2018 page.</a> For details on how and where to vote, see <a href="http://www.sos.ca.gov/elections/where-and-how/" target="_blank">the state's website</a>.</div>
@@ -23,6 +26,9 @@
 <% json.sf_chronicle_endorsements_list.endorsements.forEach(function(d,dIDX) { %>
   <% if (d.Race){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
+      <% if (d.Icon){ %>
+        <div class="prop-icon"><img src="../assets/graphics/<%=d.Icon%>"></img></div>
+      <% } %>
       <div class="race"><%=d.Race%></div>
       <div class="sentence"><%=d.Summary%></div>
       <div class="recommends">The Chronicle recommends</div>
@@ -38,6 +44,9 @@
     </div>
   <% } else if (d.Measure){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
+        <% if (d.Icon){ %>
+          <div class="prop-icon"><img src="../assets/graphics/<%=d.Icon%>"></img></div>
+        <% } %>
         <div class="race"><%=d.Measure%></div>
         <div class="sentence"><%=d.Summary%></div>
         <div class="recommends">The Chronicle recommends</div>
@@ -59,6 +68,9 @@
       </div>
   <% } else if (d.County){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
+      <% if (d.Icon){ %>
+        <div class="prop-icon"><img src="../assets/graphics/<%=d.Icon%>"></img></div>
+      <% } %>
       <div class="race"><%=d.County%></div>
       <div class="sentence"><%=d.Summary%></div>
       <div class="recommends">The Chronicle recommends</div>
