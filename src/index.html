@@ -47,7 +47,7 @@
               <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
             </div>
             <% if (d.PodcastID){ %>
-              <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="//projects.sfchronicle.com/tools/podcast-embed/player.html?show=itsallpolitical&id=<%=d.PodcastID%>"></iframe></div>
+              <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
             <% } %>
             <% if (d.VideoID){ %>
               <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
@@ -91,7 +91,7 @@
                 <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
               </div>
               <% if (d.PodcastID){ %>
-                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="//projects.sfchronicle.com/tools/podcast-embed/player.html?show=itsallpolitical&id=<%=d.PodcastID%>"></iframe></div>
+                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
@@ -122,7 +122,7 @@
           <div class="extras-overlay">
             <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
             <% if (d.PodcastID){ %>
-              <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="//projects.sfchronicle.com/tools/podcast-embed/player.html?show=itsallpolitical&id=<%=d.PodcastID%>"></iframe></div>
+              <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
             <% } %>
             <% if (d.VideoID){ %>
               <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
