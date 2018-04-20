@@ -1,4 +1,11 @@
 
+.noscroll{
+  overflow: hidden;
+  @media @mobile {
+    overflow: visible;
+  }
+}
+
 .title {
   font-family: @bold-graphics;
   margin-top: 0;
@@ -195,6 +202,21 @@
   padding: 10px;
   margin-top: 10px;
   cursor: pointer;
+
+  .fa {
+    margin-left: 5px;
+  }
+  .fa-caret-down {
+    display: none;
+    @media @mobile {
+      display: inline-block;
+    }
+  }
+  .fa-expand {
+    @media @mobile {
+      display: none;
+    }
+  }
   // display: none;
   // @media @mobile {
   //   display: block;
@@ -202,10 +224,43 @@
 }
 
 .extras-wrapper {
-  // @media @mobile {
-    display: none;
-  // }
+  display: none;
   &.show {
     display: block;
+    background: rgba(178, 178, 178, 0.4);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1999;
+    overflow-y: scroll;
+    @media @mobile {
+      position: relative;
+      overflow-y: visible;
+      background: none;
+    }
+  }
+  .extras-overlay {
+    background: white;
+    width: 80%;
+    margin: 60px auto 40px auto;
+    max-width: 1000px;
+    padding: 40px;
+    @media @mobile {
+      width: 100%;
+      // margin: 10px;
+      margin: 0;
+      padding: 15px;
+      background: #f1f1f1;
+    }
+    .exit-button {
+      font-size: 30px;
+      text-align: right;
+      @media @mobile {
+        display: none;
+      }
+    }
   }
 }
