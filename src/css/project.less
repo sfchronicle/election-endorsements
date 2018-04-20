@@ -248,6 +248,18 @@
     margin: 60px auto 40px auto;
     max-width: 1000px;
     padding: 40px;
+    .podcast-wrapper {
+      max-width: 600px;
+    }
+    .desktop-repeat-info {
+      text-align: left;
+      .editorial-link {
+        margin-left: 0;
+      }
+      @media @mobile {
+        display: none;
+      }
+    }
     @media @mobile {
       width: 100%;
       // margin: 10px;
