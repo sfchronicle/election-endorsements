@@ -2,7 +2,23 @@
 
 <%= t.include("partials/_endorsements.html") %>
 
+<div class="house-races-hed">Battle for the House of Representatives</div>
+<div class="deck">There was a time when Orange County was deep red. Those days are gone, and California Democrats think the birthplace of the John Birch Society now holds the key to <a href="https://www.sfchronicle.com/politics/article/Democrats-trying-to-turn-Orange-County-blue-one-12204481.php">retaking the House.</a></div>
 <div id="map-container-state" class="padding"></div>
+<div class="house-information">
+
+  <p>Among all the Republicans whom Democrats are trying to knock off to retake the House, one stands out for being … different. <a href="https://www.sfchronicle.com/politics/article/The-pro-Russia-pro-weed-pro-Assange-GOP-12195944.php">Rep. Dana Rohrabacher</a> is pro-marijuana legalization, thinks last year’s Charlottesville riots were staged by liberals, and is such a fan of Russia that a fellow Republican once joked that “Putin pays” him.</p>
+
+  <p><a href="https://www.sfchronicle.com/politics/article/Democrats-in-droves-targeting-California-s-12497966.php">Democrats are enthusiastic</a> about their prospects of defeating Republican House incumbents in California -- perhaps a bit too enthusiastic for their own good.</p>
+
+  <p>Republicans hoping to hold onto the House have seized on an issue that they think can help them in traditional areas that have trended bluer recently -- sanctuary status for undocumented immigrants. The GOP is <a href="https://www.sfchronicle.com/politics/article/Republicans-find-their-voice-as-the-resistance-to-12806420.php">turning into the resistance</a> against the Trump resistance.</p>
+
+  <p>Democrats aren’t the only ones hoping to flip House seats held by the other party in 2018. <a href="https://www.sfchronicle.com/politics/article/California-Republicans-see-chance-to-take-12718199.php">Republicans desperate to hold onto the House</a> think some California Democrats are vulnerable.</p>
+</div>
+
+<script>
+  var HouseData = <%= JSON.stringify(json.House) %>
+</script>
 
 <script src="app.js" async></script>
 <%= t.include("partials/_footer.html") %>

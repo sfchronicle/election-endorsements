@@ -5,47 +5,50 @@ require("./lib/social"); //Do not delete
 // initialize colors
 var red = "#BC1826";//"#BE3434";//"#D91E36";//"#A41A1A";//"#8A0000";//"#F04646";
 var blue = "#265B9B";//"#194E8E";//"#315A8C";//"#004366";//"#62A9CC";
-var light_blue = "#598ECE";
-var green = "#487F75";//"#2E655B";
-var purple = "#69586B";
-var orange = "#DE8067";
 var yellow = "#FFCC32";//"#6790B7";//"#EB8F6A";//"#FFFF65";//"#FFCC32";
-var yes_map = '#61988E';//"#705A91";//"#1D75AF";//"#6C85A5";//"#FFE599";
-var no_map = '#EB8F6A';//"#FFDB89";//"#EAE667";//"#D13D59";//"#6790B7";
-var undecided_map = "#8C8C8C";//"#b2b2b2";//"#EB8F6A";//"#FFFF65";
-var dark_gray = "#8C8C8C";
-var light_gray = "#b2b2b2";
-var lightest_gray = "#D8D8D8";
 
 var timer5minutes = 300000;
 
+var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
+// helpful functions:
+var formatthousands = d3.format("0,000");
+
+Array.prototype.max = function() {
+  return Math.max.apply(null, this);
+};
+
+// function for tooltip
+function tooltip_function(leans,properties) {
+  var html_str = "<div class='state-name'>"+properties.name+"<span class='close-tooltip'><i class='fa fa-times' aria-hidden='true'></i></span></div><div class='result'>"+leans.Cook+"</div>";
+  return html_str;
+}
+
+// function for shading colors
+function shadeColor2(color, percent) {
+    var f=parseInt(color.slice(1),16),t=percent<0?0:255,p=percent<0?percent*-1:percent,R=f>>16,G=f>>8&0x00FF,B=f&0x0000FF;
+    return "#"+(0x1000000+(Math.round((t-R)*p)+R)*0x10000+(Math.round((t-G)*p)+G)*0x100+(Math.round((t-B)*p)+B)).toString(16).slice(1);
+}
+
 // function for coloring map
-function code_map_variable(tempvar,properties){
-  if (tempvar.r) {
-    if (+tempvar.r["Yes"] > +tempvar.r["No"]) {
-      return yes_map;
-    } else if (+tempvar.r["Yes"] < +tempvar.r["No"]){
-      return no_map;
-    } else {
-      return undecided_map;
-    }
-  }
-  var count = 1;
-  while (tempvar["c"+count]) {
-    if (tempvar["c"+count+"_name"] == tempvar.d) {
-      if (tempvar["c"+count+"_party"] == "Dem") {
-        return blue;
-      } else if (tempvar["c"+count+"_party"] == "GOP") {
-        return red;
-      // } else if (tempvar["c"+count+"_name"] == "Jill Stein"){
-      //   return green;
-      // } else if (tempvar["c"+count+"_name"] == "Gary Johnson"){
-      //   return orange;
-      } else {
-        return yellow;
-      }
-    }
-    count++;
+function color_Cook(lean){
+  if (lean == "Solid Republican"){
+    return "#EF3E36";
+  } else if (lean == "Solid Democratic"){
+    return "#2176AE";
+  } else if (lean == "Likely Republican"){
+    return "#FF934F";
+  } else if (lean == "Likely Democratic"){
+    return "#57B8FF";
+  } else if (lean == "Toss-up"){
+    return "#B34ABF";
+  } else if (lean == "Lean Republican"){
+    return "#FFC682";
+  } else if (lean == "Lean Democratic"){
+    return "#8AEBFF";
+  } else {
+    return white;
   }
 }
 
@@ -153,15 +156,9 @@ if (screen.width >= 480) {
 
 var houseCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json";
 
-console.log(houseCAURL);
-
 var catimer_races;
 
 d3.json("https://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json", function(error,houseCA){
-
-  if (error){
-    return console.log(error);
-  }
 
   var path = d3.geo.path()
     .projection(null);
@@ -218,28 +215,17 @@ d3.json("https://extras.sfgate.com/editorial/election2016/live/emma_house_distri
       // })
       .style("fill", function(d) {
         var location = d.id;
-        if (d.id == 0) {
-          return "#fff";
-        } else if (active_data[String(location)]) {
-          var tempvar = active_data[String(location)];
-          if (tempvar.r || tempvar.d) {
-            var new_color = code_map_variable(tempvar,d.properties);
-            return new_color;
-          } else if (flag == 1) {
-            var new_color = code_county(tempvar,d.properties);
-            return new_color;
-          } else {
-            var new_color = color_partial_results(tempvar,d.properties,"hashblueCA","hashredCA","hashyellowCA");
-            return new_color;
-          }
+        if (HouseData[+d.id]) {
+          var tempvar = HouseData[+d.id];
+          return color_Cook(tempvar.Cook);
         } else {
-          return lightest_gray;//fill(path.area(d));
+          return "white";//fill(path.area(d));
         }
       })
       .attr("d", path)
       .on('mouseover', function(d,index) {
         if (d.id != 0) {
-          var html_str = tooltip_function(d.id,active_data,d.properties);
+          var html_str = tooltip_function(HouseData[+d.id],d.properties);
           state_tooltip.html(html_str);
           if (!iOS){
             state_tooltip.style("visibility", "visible");
