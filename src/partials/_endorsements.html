@@ -29,38 +29,41 @@
       <% } %>
       <div class="race"><%=d.Race%></div>
       <div class="sentence"><%=d.Summary%></div>
-      <div class="recommends">The Chronicle recommends</div>
-      <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
-      <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-      <% if (d.PodcastID || d.VideoID){ %>
-        <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read more</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
-        <div class="extras-wrapper"  id="extras-<%=dIDX%>">
-          <div class="extras-overlay">
-            <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
-            <div class="desktop-repeat-info">
-              <div class="race"><%=d.Race%></div>
-              <div class="recommends">The Chronicle recommends</div>
-              <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
-              <div class="sentence"><%=d.Summary%></div>
-              <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+      <% if (d.Endorsement){ %>
+        <div class="recommends">The Chronicle recommends</div>
+        <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+        <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+        <% if (d.PodcastID || d.VideoID){ %>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read more</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
+          <div class="extras-wrapper"  id="extras-<%=dIDX%>">
+            <div class="extras-overlay">
+              <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
+              <div class="desktop-repeat-info">
+                <div class="race"><%=d.Race%></div>
+                <div class="recommends">The Chronicle recommends</div>
+                <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+                <div class="sentence"><%=d.Summary%></div>
+                <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+              </div>
+              <% if (d.PodcastID){ %>
+                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
+              <% } %>
+              <% if (d.VideoID){ %>
+                <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
+              <% } %>
             </div>
-            <% if (d.PodcastID){ %>
-              <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
-            <% } %>
-            <% if (d.VideoID){ %>
-              <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
-            <% } %>
           </div>
-        </div>
-      <% } %>
-    </div>
+          <% } %>
+        <% } %>
+      </div>
   <% } else if (d.Measure){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
-        <% if (d.Icon){ %>
-          <div class="prop-icon"><img src="../assets/graphics/<%=d.Icon%>"></img></div>
-        <% } %>
-        <div class="race"><%=d.Measure%></div>
-        <div class="sentence"><%=d.Summary%></div>
+      <% if (d.Icon){ %>
+        <div class="prop-icon"><img src="../assets/graphics/<%=d.Icon%>"></img></div>
+      <% } %>
+      <div class="race"><%=d.Measure%></div>
+      <div class="sentence"><%=d.Summary%></div>
+      <% if (d.Endorsement){ %>
         <div class="recommends">The Chronicle recommends</div>
         <% if (d.Endorsement == "Yes") { %>
           <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
@@ -97,7 +100,8 @@
             </div>
           </div>
         <% } %>
-      </div>
+      <% } %>
+    </div>
   <% } else if (d.County){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
       <% if (d.Icon){ %>
@@ -105,28 +109,30 @@
       <% } %>
       <div class="race"><%=d.County%></div>
       <div class="sentence"><%=d.Summary%></div>
-      <div class="recommends">The Chronicle recommends</div>
-      <% if (d.Endorsement == "Yes") { %>
-        <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.County%></div>
-      <% } else if (d.Endorsement == "No") { %>
-        <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.County%></div>
-      <% } else { %>
-        <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
-      <% } %>
-      <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-      <% if (d.PodcastID || d.VideoID){ %>
-        <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read more</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
-        <div class="extras-wrapper"  id="extras-<%=dIDX%>">
-          <div class="extras-overlay">
-            <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
-            <% if (d.PodcastID){ %>
-              <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
-            <% } %>
-            <% if (d.VideoID){ %>
-              <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
-            <% } %>
+      <% if (d.Endorsement){ %>
+        <div class="recommends">The Chronicle recommends</div>
+        <% if (d.Endorsement == "Yes") { %>
+          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+        <% } else if (d.Endorsement == "No") { %>
+          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+        <% } else { %>
+          <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+        <% } %>
+        <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+        <% if (d.PodcastID || d.VideoID){ %>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read more</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
+          <div class="extras-wrapper"  id="extras-<%=dIDX%>">
+            <div class="extras-overlay">
+              <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
+              <% if (d.PodcastID){ %>
+                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
+              <% } %>
+              <% if (d.VideoID){ %>
+                <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
+              <% } %>
+            </div>
           </div>
-        </div>
+        <% } %>
       <% } %>
     </div>
   <% } %>
