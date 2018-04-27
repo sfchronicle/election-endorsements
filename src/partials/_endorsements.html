@@ -33,7 +33,7 @@
         <div class="recommends">The Chronicle recommends</div>
         <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
         <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-        <% if (d.PodcastID || d.VideoID){ %>
+        <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read more</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
@@ -50,6 +50,14 @@
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
+              <% } %>
+              <% if (d.RelatedLinks){ %>
+                <div class="related-links-title">Read more reporting</div>
+                <div class="related-links-wrapper">
+                <% d.RelatedLinks.forEach(function(link){ %>
+                  <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i></a><%=link.Sentence%></div>
+                <% }); %>
+                </div>
               <% } %>
             </div>
           </div>
@@ -73,7 +81,7 @@
           <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> on <%=d.Measure%></div>
         <% } %>
         <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-        <% if (d.PodcastID || d.VideoID){ %>
+        <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read more</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
@@ -97,6 +105,14 @@
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
               <% } %>
+              <% if (d.RelatedLinks){ %>
+                <div class="related-links-title">Read more reporting</div>
+                <div class="related-links-wrapper">
+                <% d.RelatedLinks.forEach(function(link){ %>
+                  <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i></a><%=link.Sentence%></div>
+                <% }); %>
+                </div>
+              <% } %>
             </div>
           </div>
         <% } %>
@@ -119,7 +135,7 @@
           <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
         <% } %>
         <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-        <% if (d.PodcastID || d.VideoID){ %>
+        <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read more</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
@@ -129,6 +145,14 @@
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
+              <% } %>
+              <% if (d.RelatedLinks){ %>
+                <div class="related-links-title">Read more reporting</div>
+                <div class="related-links-wrapper">
+                <% d.RelatedLinks.forEach(function(link){ %>
+                  <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i></a><%=link.Sentence%></div>
+                <% }); %>
+                </div>
               <% } %>
             </div>
           </div>

@@ -102,9 +102,8 @@ document.getElementById("button-all").addEventListener("click",function(){
 
 // buttons to open expanded sections
 var seemoreButtons = document.getElementsByClassName("see-more-mobile")
-var td;
 for (var t = 0; t < seemoreButtons.length; t++){
-  td = document.getElementById(seemoreButtons[t].id);
+  var td = document.getElementById(seemoreButtons[t].id);
   if (typeof window.addEventListener === 'function'){
     (function (_td) {
       td.addEventListener('click', function(){
@@ -128,6 +127,34 @@ for (var t = 0; t < seemoreButtons.length; t++){
     })(td);
   };
 }
+
+// // buttons to open expanded sections
+// var seemoreButtons = document.getElementsByClassName("see-more-mobile");
+// console.log(seemoreButtons);
+// for (var t = 0; t < seemoreButtons.length; t++){
+//   console.log(t);
+//   console.log(seemoreButtons[t])
+//   var td = document.getElementById(seemoreButtons[t].id);
+//   td.addEventListener('click', function(){
+//     console.log(td.id.split("read-more-")[1])
+//     var buttonidx = td.id.split("read-more-")[1];
+//     if (document.getElementById("extras-"+buttonidx).classList.contains("show")){
+//       $("#extras-"+buttonidx).removeClass("show");
+//       $('body').removeClass('noscroll');
+//       if (screen.width <= 480){
+//         $(this).find('.read-more-less').html("Read more");
+//         $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
+//       }
+//     } else {
+//       $("#extras-"+buttonidx).addClass("show");
+//       $('body').addClass('noscroll');
+//       if (screen.width <= 480){
+//         $(this).find('.read-more-less').html("Read less");
+//         $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
+//       }
+//     }
+//   });
+// }
 
 // buttons to close expanded sections on desktop
 if (screen.width >= 480) {
