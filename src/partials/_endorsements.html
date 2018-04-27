@@ -51,8 +51,16 @@
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
               <% } %>
+              <% if (d.Candidates){ %>
+                <div class="candidates-wrapper">
+                  <div class="candidates-title">Candidates</div>
+                  <% d.Candidates.forEach(function(candidate){ %>
+                    <div class="candidate-line"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
+                  <% }); %>
+                </div>
+              <% } %>
               <% if (d.RelatedLinks){ %>
-                <div class="related-links-title">Read more reporting</div>
+                <div class="related-links-title">More resources</div>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
                   <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i></a><%=link.Sentence%></div>
@@ -105,6 +113,14 @@
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
               <% } %>
+              <% if (d.Candidates){ %>
+                <div class="candidates-wrapper">
+                  <div class="candidates-title">Candidates</div>
+                  <% d.Candidates.forEach(function(candidate){ %>
+                    <div class="candidate-line"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
+                  <% }); %>
+                </div>
+              <% } %>
               <% if (d.RelatedLinks){ %>
                 <div class="related-links-title">Read more reporting</div>
                 <div class="related-links-wrapper">
@@ -145,6 +161,14 @@
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
+              <% } %>
+              <% if (d.Candidates){ %>
+                <div class="candidates-wrapper">
+                  <div class="candidates-title">Candidates</div>
+                  <% d.Candidates.forEach(function(candidate){ %>
+                    <div class="candidate-line"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
+                  <% }); %>
+                </div>
               <% } %>
               <% if (d.RelatedLinks){ %>
                 <div class="related-links-title">Read more reporting</div>
