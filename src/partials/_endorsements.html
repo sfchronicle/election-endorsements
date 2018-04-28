@@ -2,7 +2,7 @@
 
 <div class="top-container">
   <div class="election-banner">
-    <img src="../assets/graphics/Election2018banner.png">
+    <img src="./assets/graphics/Election2018banner.png">
   </div>
   <div class="title">Voter Guide</div>
   <div class="intro">
@@ -25,7 +25,7 @@
   <% if (d.Race){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
       <% if (d.Icon){ %>
-        <div class="prop-icon"><img src="../assets/graphics/<%=d.Icon%>"></img></div>
+        <div class="prop-icon"><img src="./assets/graphics/<%=d.Icon%>"></img></div>
       <% } %>
       <div class="race"><%=d.Race%></div>
       <div class="sentence"><%=d.Summary%></div>
@@ -75,7 +75,7 @@
   <% } else if (d.Measure){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
       <% if (d.Icon){ %>
-        <div class="prop-icon"><img src="../assets/graphics/<%=d.Icon%>"></img></div>
+        <div class="prop-icon"><img src="./assets/graphics/<%=d.Icon%>"></img></div>
       <% } %>
       <div class="race"><%=d.Measure%></div>
       <div class="sentence"><%=d.Summary%></div>
@@ -137,7 +137,7 @@
   <% } else if (d.County){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
       <% if (d.Icon){ %>
-        <div class="prop-icon"><img src="../assets/graphics/<%=d.Icon%>"></img></div>
+        <div class="prop-icon"><img src="./assets/graphics/<%=d.Icon%>"></img></div>
       <% } %>
       <div class="race"><%=d.County%></div>
       <div class="sentence"><%=d.Summary%></div>

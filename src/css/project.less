@@ -470,3 +470,31 @@
     color: lighten(@dark-gray,5%);
   }
 }
+
+.legend-container {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 30px;
+  .legend-element {
+    margin: 0 5px;
+    display: inline-block;
+    font-size: 14px;
+    .legendtext {
+      margin-left: 5px;
+      float: left;
+    }
+    .legendbox {
+      height: 14px;
+      width: 14px;
+      float: left;
+      margin-top: 3px;
+      &.dem { background: #2176AE;}
+      &.dem25 { background: lighten(#2176AE,10%);}
+      &.dem50 { background: lighten(#2176AE,20%);}
+      &.rep { background: #EC1C24;}
+      &.rep25 { background: lighten(#EC1C24,10%);}
+      &.rep50 { background: lighten(#EC1C24,20%);}
+      &.tossup { background: #B34ABF;}
+    }
+  }
+}

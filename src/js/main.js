@@ -3,8 +3,8 @@ var topojson = require('topojson');
 require("./lib/social"); //Do not delete
 
 // initialize colors
-var red = "#BC1826";//"#BE3434";//"#D91E36";//"#A41A1A";//"#8A0000";//"#F04646";
-var blue = "#265B9B";//"#194E8E";//"#315A8C";//"#004366";//"#62A9CC";
+var red = "#EC1C24";//"#BE3434";//"#D91E36";//"#A41A1A";//"#8A0000";//"#F04646";
+var blue = "#2176AE";//"#265B9B";//"#194E8E";//"#315A8C";//"#004366";//"#62A9CC";
 var yellow = "#FFCC32";//"#6790B7";//"#EB8F6A";//"#FFFF65";//"#FFCC32";
 
 var timer5minutes = 300000;
@@ -34,19 +34,21 @@ function shadeColor2(color, percent) {
 // function for coloring map
 function color_Cook(lean){
   if (lean == "Solid Republican"){
-    return "#EF3E36";
+    console.log(red);
+    return red;//"#EF3E36";
   } else if (lean == "Solid Democratic"){
-    return "#2176AE";
+    return blue;//"#2176AE";
   } else if (lean == "Likely Republican"){
-    return "#FF934F";
+    return shadeColor2(red,0.25);//"#FF934F";
   } else if (lean == "Likely Democratic"){
-    return "#57B8FF";
+    return shadeColor2(blue,0.25);//"#57B8FF";
   } else if (lean == "Toss-up"){
     return "#B34ABF";
   } else if (lean == "Lean Republican"){
-    return "#FFC682";
+    return shadeColor2(red,0.50);//"#FFC682";
   } else if (lean == "Lean Democratic"){
-    return "#8AEBFF";
+    console.log(shadeColor2(blue,0.50));
+    return shadeColor2(blue,0.50);//"#8AEBFF";
   } else {
     return white;
   }
