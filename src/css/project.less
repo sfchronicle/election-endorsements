@@ -411,16 +411,16 @@
 .label-SF {
   margin-top: -250px;
   @media @phone-horiz {
-    margin-top: -200px;
+    margin-top: -220px
   }
   @media @mobile {
-    margin-top: -125px;
+    margin-top: -180px;
   }
 }
 .label-LA {
   margin-top: -50px;
   @media @mobile {
-    margin-top: -5px;
+    margin-top: -50px;
   }
 }
 
@@ -428,13 +428,24 @@
   max-width: 800px;
   width: 98%;
   margin: 30px auto;
-  border: 1px solid @light-gray;
+  padding: 10px;
+  // border: 1px solid @light-gray;
   .source, .credit {
-    margin-top: -20px;
+    margin-top: -10px;
+    // padding: 0;
+    padding-top: 5px;
     padding-left: 50px;
+    @media @tablet-horiz {
+      // padding: 0;
+      padding-left: 10px;
+    }
+    @media @mobile {
+      margin-top: 10px;
+      // padding: 0;
+    }
   }
   .credit {
-    margin-top: -5px;
+    margin-top: 0;
     margin-bottom: 40px;
   }
   font-family: @med-graphics;
@@ -451,6 +462,7 @@
   font-size: 24px;
   text-align: center;
   padding-top: 30px;
+  line-height: 1.2;
 }
 
 .deck {
@@ -517,8 +529,14 @@
   line-height: 1.2;
   .related-link-line {
     padding-bottom: 10px;
+    a {
+      text-decoration: none;
+      color: #333;
+    }
     .fa {
-      padding-right: 5px;
+      font-size: 20px;
+      padding-right: 7px;
+      color: @highlight;
     }
   }
 }
