@@ -71,7 +71,7 @@ for (var t = 0; t < seemoreButtons.length; t++){
         $("#extras-"+buttonidx).removeClass("show");
         $('body').removeClass('noscroll');
         if (screen.width <= 480){
-          $(this).find('.read-more-less').html("Learn more");
+          $(this).find('.read-more-less').html("Read more");
           $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
         }
       } else {
@@ -97,11 +97,26 @@ if (screen.width >= 480) {
         var buttonidx = _td.id.split("exit-")[1];
         $("#extras-"+buttonidx).removeClass("show");
         $('body').removeClass('noscroll');
-        $(this).find('.read-more-less').html("Learn more");
+        $(this).find('.read-more-less').html("Read more");
         // $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
       });
     })(td);
   };
+}
+
+window.onscroll = function() {activate()};
+
+function activate() {
+
+  var window_top = document.body.scrollTop;
+  var div_top = document.getElementsByClassName("button-container")[0].getBoundingClientRect().top + window_top;
+
+  if (window_top > div_top) {
+    $(".top-filter-button").addClass("displayclass");
+  } else {
+    $(".top-filter-button").removeClass("displayclass");
+  }
+
 }
 
 // $(document).on('click', 'a[href^="#"]', function (event) {

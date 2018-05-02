@@ -11,7 +11,7 @@
   </div>
 </div>
 
-<div class="nav-hed">What are you looking for?</div>
+<div class="nav-hed" id="question-link">What are you looking for?</div>
 <div class="button-container">
   <div class="nav-filter-button" id="button-state">State</div>
   <div class="nav-filter-button" id="button-region">Region</div>
@@ -36,7 +36,7 @@
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <% if (d.PodcastID) { var podcastvis = "podcasticon" } else { var podcastvis = "" } %>
           <% if (d.VideoID) { var videovis = "videoicon" } else { var videovis = "" } %>
-          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Learn more</span> <a href="#vid<%=dIDX%>"><i class="fa fa-video-camera <%=videovis%>"></i></a><a href="#pod<%=dIDX%>"><i class="fa fa-volume-up <%=podcastvis%>"></i></a><i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read more</span> <a href="#vid<%=dIDX%>"><i class="fa fa-video-camera <%=videovis%>"></i></a><a href="#pod<%=dIDX%>"><i class="fa fa-volume-up <%=podcastvis%>"></i></a><i class="fa fa-expand"></i><i class="fa fa-caret-down"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
@@ -55,7 +55,7 @@
               <% } %>
               <% if (d.Candidates){ %>
                 <div class="candidates-wrapper">
-                  <div class="candidates-title">Candidates</div>
+                  <div class="candidates-title">Top Candidates</div>
                   <% d.Candidates.forEach(function(candidate){ %>
                     <div class="candidate-line"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
                   <% }); %>
