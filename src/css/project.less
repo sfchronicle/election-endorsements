@@ -293,6 +293,8 @@
       position: relative;
       overflow-y: visible;
       background: none;
+      height: inherit;
+      display: inline-block;
       border-top: 1px solid @light-gray;
     }
   }
@@ -533,8 +535,8 @@
   }
   padding: 10px 0;
   margin: 10px 0;
-  border-bottom: 1px solid @highlight;
-  border-top: 1px solid @highlight;
+  border-bottom: 1px solid @light-gray;
+  border-top: 1px solid @light-gray;
   @media @mobile {
     border-top: 0;
     margin-top: 0;
