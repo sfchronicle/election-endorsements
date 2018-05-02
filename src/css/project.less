@@ -245,9 +245,12 @@
   color: @dark-gray;
   background: lighten(#d7d7d7,10%);
   cursor: pointer;
-  padding: 10px;
+  padding: 15px;
   margin-top: 10px;
   cursor: pointer;
+  @media @mobile {
+    padding: 10px;
+  }
 
   .read-more-less {
     margin-right: 5px;
@@ -290,6 +293,7 @@
       position: relative;
       overflow-y: visible;
       background: none;
+      border-top: 1px solid @light-gray;
     }
   }
   .extras-overlay {
@@ -341,8 +345,11 @@
       background: #f1f1f1;
     }
     .exit-button {
-      font-size: 30px;
+      font-size: 50px;
       text-align: right;
+      position: fixed;
+      top: 20%;
+      right: 10%;
       @media @mobile {
         display: none;
       }
@@ -528,6 +535,10 @@
   margin: 10px 0;
   border-bottom: 1px solid @highlight;
   border-top: 1px solid @highlight;
+  @media @mobile {
+    border-top: 0;
+    margin-top: 0;
+  }
   .candidate-name {
     font-family: @med-graphics;
     // font-size: 28px;

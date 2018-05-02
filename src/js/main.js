@@ -1,6 +1,7 @@
 require("./lib/social"); //Do not delete
 
 var pos = $(".button-container").offset().top - 40;
+var opensection = 0;
 
 if (screen.width <= 480) {
   var pos_lower = $(".button-container").offset().top - 40;
@@ -14,6 +15,16 @@ $('a[href^="http"]').attr('target','_blank');
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+// // hide the about the data box
+// document.body.addEventListener("click",function() {
+//   console.log("CLICK");
+//   // var buttonidx = _td.id.split("exit-")[1];
+//   // $("#extras-"+buttonidx).removeClass("show");
+//   $('body').removeClass('noscroll');
+//   // $(this).find('.read-more-less').html("Read the coverage");
+// });
+
 
 var centerButtons = document.getElementsByClassName("nav-filter-button");
 for (cidx=0; cidx < centerButtons.length; cidx++ ){
@@ -75,7 +86,7 @@ for (var t = 0; t < seemoreButtons.length; t++){
         $("#extras-"+buttonidx).removeClass("show");
         $('body').removeClass('noscroll');
         if (screen.width <= 480){
-          $(this).find('.read-more-less').html("Read more");
+          $(this).find('.read-more-less').html("Read the coverage");
           $(this).find(".caretclass").toggleClass('fa-caret-down fa-caret-up');
         }
       } else {
@@ -101,7 +112,7 @@ if (screen.width >= 480) {
         var buttonidx = _td.id.split("exit-")[1];
         $("#extras-"+buttonidx).removeClass("show");
         $('body').removeClass('noscroll');
-        $(this).find('.read-more-less').html("Read more");
+        $(this).find('.read-more-less').html("Read the coverage");
         // $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
       });
     })(td);
