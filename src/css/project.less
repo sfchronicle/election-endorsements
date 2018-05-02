@@ -79,6 +79,33 @@
   font-size: 18px;
 }
 
+.top-filter-button {
+  font-family: @banner;
+  color: @highlight;
+  font-size: 15px;
+  vertical-align: middle;
+  // padding-top: 10px;
+  padding: 7px 5px 0px 5px;
+  margin-top: -12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: none;
+  display: inline-block;
+  height: 37px;
+  &.active {
+    background: lighten(@light-gray,5%);
+    height: 37px;
+    color: darken(@highlight,5%);
+  }
+  &.displayclass {
+    display: inline-block;
+  }
+  &:hover {
+    cursor: pointer;
+    font-weight: 800;
+  }
+}
+
 .button-container {
   margin: auto;
   margin-bottom: 30px;
