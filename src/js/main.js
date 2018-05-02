@@ -72,14 +72,14 @@ for (var t = 0; t < seemoreButtons.length; t++){
         $('body').removeClass('noscroll');
         if (screen.width <= 480){
           $(this).find('.read-more-less').html("Read more");
-          $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
+          $(this).find('i').find("caretclass").toggleClass('fa-caret-down fa-caret-up');
         }
       } else {
         $("#extras-"+buttonidx).addClass("show");
         $('body').addClass('noscroll');
         if (screen.width <= 480){
           $(this).find('.read-more-less').html("See less");
-          $(this).find('i').toggleClass('fa-caret-down fa-caret-up');
+          $(this).find('i').find("caretclass").toggleClass('fa-caret-down fa-caret-up');
         }
       }
     });
