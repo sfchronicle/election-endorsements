@@ -36,7 +36,7 @@
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <% if (d.PodcastID) { var podcastvis = "podcasticon" } else { var podcastvis = "" } %>
           <% if (d.VideoID) { var videovis = "videoicon" } else { var videovis = "" } %>
-          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read the coverage</span> <a href="#vid<%=dIDX%>"><i class="fa fa-video-camera <%=videovis%>"></i></a><a href="#pod<%=dIDX%>"><i class="fa fa-volume-up <%=podcastvis%>"></i></a><i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">More coverage</span> <a href="#vid<%=dIDX%>"><i class="fa fa-video-camera <%=videovis%>"></i></a><a href="#pod<%=dIDX%>"><i class="fa fa-volume-up <%=podcastvis%>"></i></a><i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
@@ -62,7 +62,7 @@
                 </div>
               <% } %>
               <% if (d.RelatedLinks){ %>
-                <div class="related-links-title">More resources</div>
+                <div class="related-links-title">More coverage</div>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
                   <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i><%=link.Sentence%></div></a>
@@ -92,7 +92,7 @@
         <% } %>
         <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
-          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read the coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">More coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
@@ -100,9 +100,9 @@
                 <div class="race"><%=d.Measure%></div>
                 <div class="recommends">The Chronicle recommends</div>
                 <% if (d.Endorsement == "Yes") { %>
-                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
+                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span></div>
                 <% } else if (d.Endorsement == "No") { %>
-                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
+                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span></div>
                 <% } else { %>
                   <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> on <%=d.Measure%></div>
                 <% } %>
@@ -124,7 +124,7 @@
                 </div>
               <% } %>
               <% if (d.RelatedLinks){ %>
-                <div class="related-links-title">Read the coverage reporting</div>
+                <div class="related-links-title">More coverage</div>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
                   <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i><%=link.Sentence%></div></a>
@@ -154,10 +154,23 @@
         <% } %>
         <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
-          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Read the coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">More coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
+              <div class="desktop-repeat-info">
+                <div class="race"><%=d.County%></div>
+                <div class="recommends">The Chronicle recommends</div>
+                <% if (d.Endorsement == "Yes") { %>
+                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span></div>
+                <% } else if (d.Endorsement == "No") { %>
+                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span></div>
+                <% } else { %>
+                  <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+                <% } %>
+                <div class="sentence"><%=d.Summary%></div>
+                <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+              </div>
               <% if (d.PodcastID){ %>
                 <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
               <% } %>
@@ -173,7 +186,7 @@
                 </div>
               <% } %>
               <% if (d.RelatedLinks){ %>
-                <div class="related-links-title">Read the coverage reporting</div>
+                <div class="related-links-title">More coverage</div>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
                   <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i><%=link.Sentence%></div></a>
