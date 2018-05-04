@@ -188,6 +188,13 @@
     text-align: center;
     border: 1px solid @light-gray;
     display: none;
+    &.featured {
+      .flex(0 0 98%);
+      .sentence {
+        max-width: 550px;
+        margin: auto;
+      }
+    }
     @media @mobile {
       .flex(0 0 90%);
       padding: 0;
@@ -245,8 +252,8 @@
   color: @dark-gray;
   background: lighten(#d7d7d7,10%);
   cursor: pointer;
-  padding: 15px;
-  margin-top: 10px;
+  padding: 10px;
+  // margin-top: 10px;
   cursor: pointer;
   @media @mobile {
     padding: 10px;
@@ -544,30 +551,52 @@
   }
 }
 
+.endorsement-info {
+  .display-flex;
+  .flex-wrap(wrap);
+  .align-items(normal);
+  max-width: 400px;
+  margin: auto;
+  .prop-icon-left, .other-sub-box {
+    .flex(0 0 50%);
+  }
+}
+
 .candidates-wrapper {
   text-align: left;
+  font-family: @med-graphics;
+  line-height: 1.2;
+  color: @dark-gray;
+  .display-flex;
+  .flex-wrap(wrap);
+  .align-items(normal);
   .candidate-line {
-    font-size: 16px;
+    font-size: 15px;
     padding-bottom: 10px;
     .fa {
       color: @dark-gray;
       margin-right: 5px;
     }
+    .flex(0 0 50%);
+    &.Governor {
+      .flex(0 0 33%);
+    }
+    padding: 10px;
   }
   padding: 10px 0;
   margin: 10px 0;
   border-bottom: 1px solid @light-gray;
-  border-top: 1px solid @light-gray;
+  // border-top: 1px solid @light-gray;
   @media @mobile {
     border-top: 0;
     margin-top: 0;
   }
   .candidate-name {
-    font-family: @med-graphics;
+    font-family: @block-graphics;
     // font-size: 28px;
     text-transform: uppercase;
     padding: 5px;
-    color: lighten(@dark-gray,5%);
+    color: #333;
   }
 }
 
@@ -631,5 +660,21 @@
   margin: 50px auto;
   @media @tablet {
     width: 90%;
+  }
+}
+
+.procon-container {
+  padding-top: 20px;
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: @med-graphics;
+  text-align: left;
+  .con {
+    padding-top: 10px;
+  }
+  .procon-hed {
+    font-family: @bold-graphics;
+    font-style: italic;
+    padding-right: 10px;
   }
 }

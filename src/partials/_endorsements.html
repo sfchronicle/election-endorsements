@@ -23,16 +23,36 @@
 <div class="endorsements-container">
 <% json.sf_chronicle_endorsements_list.endorsements.forEach(function(d,dIDX) { %>
   <% if (d.Race){ %>
-    <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
-      <% if (d.Icon){ %>
+    <div class="endorsements-box active <%=d.Tag.replace(',',' ')%> <%=d.Class%>">
+      <% if (d.Icon && !d.Candidates) { %>
         <div class="prop-icon"><img src="./assets/graphics/<%=d.Icon%>"></img></div>
       <% } %>
       <div class="race"><%=d.Race%></div>
       <div class="sentence"><%=d.Summary%></div>
+      <% if (d.Candidates){ %>
+        <div class="candidates-wrapper">
+          <% d.Candidates.forEach(function(candidate){ %>
+            <div class="candidate-line <%=d.Race%>"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
+          <% }); %>
+        </div>
+      <% } %>
       <% if (d.Endorsement){ %>
-        <div class="recommends">The Chronicle recommends</div>
-        <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
-        <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+
+        <% if (d.Icon && d.Candidates){ %>
+          <div class="endorsement-info">
+          <div class="prop-icon prop-icon-left"><img src="./assets/graphics/<%=d.Icon%>"></img></div>
+          <div class="other-sub-box">
+            <div class="recommends">The Chronicle recommends</div>
+            <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+            <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+          </div>
+          </div>
+        <% }  else { %>
+          <div class="recommends">The Chronicle recommends</div>
+          <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+          <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+        <% } %>
+
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <% if (d.PodcastID) { var podcastvis = "podcasticon" } else { var podcastvis = "" } %>
           <% if (d.VideoID) { var videovis = "videoicon" } else { var videovis = "" } %>
@@ -40,26 +60,12 @@
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
-              <div class="desktop-repeat-info">
-                <div class="race"><%=d.Race%></div>
-                <div class="recommends">The Chronicle recommends</div>
-                <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
-                <div class="sentence"><%=d.Summary%></div>
-                <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-              </div>
+              <div class="race"><%=d.Race%></div>
               <% if (d.PodcastID){ %>
                 <div class="podcast-wrapper" id="pod<%=dIDX%>"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper" id="vid<%=dIDX%>"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
-              <% } %>
-              <% if (d.Candidates){ %>
-                <div class="candidates-wrapper">
-                  <div class="candidates-title">Top Candidates</div>
-                  <% d.Candidates.forEach(function(candidate){ %>
-                    <div class="candidate-line"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
-                  <% }); %>
-                </div>
               <% } %>
               <% if (d.RelatedLinks){ %>
                 <div class="related-links-title">More coverage</div>
@@ -81,6 +87,12 @@
       <% } %>
       <div class="race"><%=d.Measure%></div>
       <div class="sentence"><%=d.Summary%></div>
+      <% if (d.ProCon){ %>
+        <div class="procon-container">
+          <div class="pro"><span class="procon-hed">Pros:</span><%=d.ProCon[0].For%></div>
+          <div class="con"><span class="procon-hed">Cons:</span><%=d.ProCon[0].Against%></div>
+        </div>
+      <% } %>
       <% if (d.Endorsement){ %>
         <div class="recommends">The Chronicle recommends</div>
         <% if (d.Endorsement == "Yes") { %>
@@ -96,32 +108,12 @@
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
-              <div class="desktop-repeat-info">
-                <div class="race"><%=d.Measure%></div>
-                <div class="recommends">The Chronicle recommends</div>
-                <% if (d.Endorsement == "Yes") { %>
-                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span></div>
-                <% } else if (d.Endorsement == "No") { %>
-                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span></div>
-                <% } else { %>
-                  <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> on <%=d.Measure%></div>
-                <% } %>
-                <div class="sentence"><%=d.Summary%></div>
-                <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-              </div>
+              <div class="race"><%=d.Measure%></div>
               <% if (d.PodcastID){ %>
                 <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
-              <% } %>
-              <% if (d.Candidates){ %>
-                <div class="candidates-wrapper">
-                  <div class="candidates-title">Candidates</div>
-                  <% d.Candidates.forEach(function(candidate){ %>
-                    <div class="candidate-line"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
-                  <% }); %>
-                </div>
               <% } %>
               <% if (d.RelatedLinks){ %>
                 <div class="related-links-title">More coverage</div>
@@ -158,32 +150,12 @@
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
-              <div class="desktop-repeat-info">
-                <div class="race"><%=d.County%></div>
-                <div class="recommends">The Chronicle recommends</div>
-                <% if (d.Endorsement == "Yes") { %>
-                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span></div>
-                <% } else if (d.Endorsement == "No") { %>
-                  <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span></div>
-                <% } else { %>
-                  <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
-                <% } %>
-                <div class="sentence"><%=d.Summary%></div>
-                <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-              </div>
+              <div class="race"><%=d.County%></div>
               <% if (d.PodcastID){ %>
                 <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
-              <% } %>
-              <% if (d.Candidates){ %>
-                <div class="candidates-wrapper">
-                  <div class="candidates-title">Candidates</div>
-                  <% d.Candidates.forEach(function(candidate){ %>
-                    <div class="candidate-line"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
-                  <% }); %>
-                </div>
               <% } %>
               <% if (d.RelatedLinks){ %>
                 <div class="related-links-title">More coverage</div>
