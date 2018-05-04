@@ -669,9 +669,16 @@
   line-height: 1.2;
   font-family: @med-graphics;
   text-align: left;
-  .con {
-    padding-top: 10px;
+  .display-flex;
+  .flex-wrap(wrap);
+  .align-items(normal);
+  .pro, .con {
+    padding: 10px;
+    .flex(0 0 50%);
   }
+  // .con {
+  //   padding-top: 10px;
+  // }
   .procon-hed {
     font-family: @bold-graphics;
     font-style: italic;
