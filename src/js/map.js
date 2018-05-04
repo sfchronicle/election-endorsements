@@ -57,16 +57,16 @@ function color_Cook(lean){
 // STATE MAP ------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
-var houseCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json";
+// var houseCAURL = "https://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json";
 
 var catimer_races;
 
-d3.json("https://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json", function(error,houseCA){
+// d3.json("https://extras.sfgate.com/editorial/election2016/live/emma_house_district_ca.json", function(error,houseCA){
 
   var path = d3.geo.path()
     .projection(null);
 
-  function camap_insets_function(active_map,active_data,flag) {
+  function camap_insets_function(active_map) {
 
     d3.select("#map-container-state").select("svg").remove();
     d3.select("#map-container-state").select(".svg-container").remove();
@@ -85,24 +85,24 @@ d3.json("https://extras.sfgate.com/editorial/election2016/live/emma_house_distri
       //class to make it responsive
       .classed("svg-content-responsive", true);
 
-    //Pattern injection
-    var patternCA = svgCACounties.append("defs")
-      .append("pattern")
-        .attr({ id:"hashblueCA", width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(60)"})
-      .append("rect")
-        .attr({ width:"6", height:"8", transform:"translate(0,0)", fill:blue });
-
-    var patternCA2 = svgCACounties.append("defs")
-      .append("pattern")
-        .attr({ id:"hashredCA", width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(60)"})
-      .append("rect")
-        .attr({ width:"6", height:"8", transform:"translate(0,0)", fill:red });
-
-    var patternCA3 = svgCACounties.append("defs")
-      .append("pattern")
-        .attr({ id:"hashyellowCA", width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(60)"})
-      .append("rect")
-        .attr({ width:"6", height:"8", transform:"translate(0,0)", fill:yellow });
+    // //Pattern injection
+    // var patternCA = svgCACounties.append("defs")
+    //   .append("pattern")
+    //     .attr({ id:"hashblueCA", width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(60)"})
+    //   .append("rect")
+    //     .attr({ width:"6", height:"8", transform:"translate(0,0)", fill:blue });
+    //
+    // var patternCA2 = svgCACounties.append("defs")
+    //   .append("pattern")
+    //     .attr({ id:"hashredCA", width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(60)"})
+    //   .append("rect")
+    //     .attr({ width:"6", height:"8", transform:"translate(0,0)", fill:red });
+    //
+    // var patternCA3 = svgCACounties.append("defs")
+    //   .append("pattern")
+    //     .attr({ id:"hashyellowCA", width:"8", height:"8", patternUnits:"userSpaceOnUse", patternTransform:"rotate(60)"})
+    //   .append("rect")
+    //     .attr({ width:"6", height:"8", transform:"translate(0,0)", fill:yellow });
 
     d3.json(active_map, function(error, us) {
       if (error) throw error;
@@ -181,10 +181,11 @@ d3.json("https://extras.sfgate.com/editorial/election2016/live/emma_house_distri
 
   };
 
-  camap_insets_function("./assets/maps/ca_house_insets.json",houseCA,0);
-  catimer_races = setInterval(function() {
-    camap_insets_function("./assets/maps/ca_house_insets.json",houseCA,0);
-    console.log("refresh ca insets map");
-  }, timer5minutes);
-
-});
+  camap_insets_function("./assets/maps/ca_house_insets.json");
+  // camap_insets_function("./assets/maps/ca_house_insets.json",houseCA,0);
+//   catimer_races = setInterval(function() {
+//     camap_insets_function("./assets/maps/ca_house_insets.json",houseCA,0);
+//     console.log("refresh ca insets map");
+//   }, timer5minutes);
+//
+// });
