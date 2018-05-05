@@ -189,15 +189,15 @@
     border: 1px solid @light-gray;
     display: none;
     &.featured {
-      .flex(0 0 98%);
+      .flex(0 0 95%);
       .sentence {
         max-width: 550px;
         margin: auto;
       }
     }
     @media @mobile {
-      .flex(0 0 90%);
-      padding: 0;
+      .flex(0 0 95%);
+      padding: 10px;
     }
     &.active {
       display: block;
@@ -311,6 +311,17 @@
     margin: 60px auto 40px auto;
     max-width: 680px;
     padding: 40px;
+    .race {
+      color: @dark-gray;
+      font-family: @med-graphics;
+      text-transform: uppercase;
+      font-size: 17px;
+      border-bottom: 1px solid @light-gray;
+      margin-bottom: 20px;
+      @media @mobile {
+        display: none;
+      }
+    }
     .podcast-wrapper {
       max-width: 600px;
       @media @mobile {
@@ -527,7 +538,7 @@
 
 .related-links-title, .candidates-title {
   font-family: @bold-graphics;
-  font-size: 20px;
+  font-size: 17px;
   padding-bottom: 15px;
   text-align: left;
 }
@@ -560,6 +571,16 @@
   .prop-icon-left, .other-sub-box {
     .flex(0 0 50%);
   }
+  .prop-icon-left {
+    @media @mobile {
+      .flex(0 0 30%);
+    }
+  }
+  .other-sub-box {
+    @media @mobile {
+      .flex(0 0 70%);
+    }
+  }
 }
 
 .candidates-wrapper {
@@ -578,8 +599,14 @@
       margin-right: 5px;
     }
     .flex(0 0 50%);
+    @media @mobile {
+      .flex(0 0 100%);
+    }
     &.Governor {
       .flex(0 0 33%);
+      @media @mobile {
+        .flex(0 0 100%);
+      }
     }
     padding: 10px;
   }
@@ -635,7 +662,7 @@
   margin: auto;
   margin-top: 70px;
   @media @mobile {
-    width: 90%;
+    width: 95%;
   }
   .credit-hed {
     font-family: @med-graphics;
@@ -675,6 +702,9 @@
   .pro, .con {
     padding: 10px;
     .flex(0 0 50%);
+    @media @mobile {
+      padding: 5px;
+    }
   }
   // .con {
   //   padding-top: 10px;
