@@ -62,7 +62,7 @@
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
               <div class="race"><%=d.Race%></div>
               <% if (d.PodcastID){ %>
-                <div class="podcast-wrapper" id="pod<%=dIDX%>"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
+                <div class="podcast-wrapper" id="pod<%=dIDX%>"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>?"></iframe></div>
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper" id="vid<%=dIDX%>"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
@@ -110,7 +110,7 @@
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
               <div class="race"><%=d.Measure%></div>
               <% if (d.PodcastID){ %>
-                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
+                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>?"></iframe></div>
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
@@ -152,7 +152,7 @@
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
               <div class="race"><%=d.County%></div>
               <% if (d.PodcastID){ %>
-                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>"></iframe></div>
+                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>?"></iframe></div>
               <% } %>
               <% if (d.VideoID){ %>
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>

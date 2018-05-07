@@ -191,7 +191,7 @@
     &.featured {
       .flex(0 0 95%);
       .sentence {
-        max-width: 550px;
+        max-width: 620px;
         margin: auto;
       }
     }
@@ -577,7 +577,15 @@
     }
   }
   .other-sub-box {
+    text-align: left;
+    .editorial-link {
+      margin-left: 0;
+      @media @mobile {
+        margin-left: 10px;
+      }
+    }
     @media @mobile {
+      text-align: center;
       .flex(0 0 70%);
     }
   }

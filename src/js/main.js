@@ -104,9 +104,8 @@ for (var t = 0; t < seemoreButtons.length; t++){
 // buttons to close expanded sections on desktop
 if (screen.width >= 480) {
   var exitButtons = document.getElementsByClassName("exit-button")
-  var td;
   for (var t = 0; t < exitButtons.length; t++){
-    td = document.getElementById(exitButtons[t].id);
+    var td = document.getElementById(exitButtons[t].id);
     (function (_td) {
       td.addEventListener('click', function(){
         var buttonidx = _td.id.split("exit-")[1];
