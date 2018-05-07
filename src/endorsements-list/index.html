@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title><%= json.project.seo_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="__sync_contentCategory" content="<%= json.project.paywall %>">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../style.css?7">
+    <%= t.include("partials/_meta.html") %>
+    <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
+  </head>
+
+  <%= !json.project.embedded ? "<body>" : "<body is='responsive-body'>" %>
+
+  <%= t.include("partials/_list_nav.html") %>
+
+<div class="top-container">
+  <div class="election-banner">
+    <img src="../assets/graphics/Election2018banner.png">
+  </div>
+  <div class="title edboard">Editorial Board Endorsements</div>
+
+  <div class="edboard-intro">The Chronicle has made recommendations on all statewide and city races and measures on the June 5 ballot, as well as selected regional issues. Those endorsements are made by the Editorial Board, consisting of writers and editors for the opinion pages, after researching the issues and interviewing the candidates. The writers and editors involved in the news coverage of the campaigns do not participate in endorsement decisions.</div>
+  <div class="edboard-link"><a href="https://www.sfchronicle.com/opinion/diaz/article/How-and-why-The-San-Francisco-Chronicle-makes-12724375.php" target="_blank"><i class="fa fa-external-link"></i>How and why The San Francisco Chronicle makes endorsements</a></div>
+</div>
+
+<div class="endorsements-container">
+<% json.sf_chronicle_endorsements_list.endorsements.forEach(function(d,dIDX) { %>
+  <% if (d.Race){ %>
+    <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
+      <div class="race"><%=d.Race%></div>
+      <!-- <div class="sentence"><%=d.Summary%></div> -->
+      <div class="recommends">The Chronicle recommends</div>
+      <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+      <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+      </div>
+  <% } else if (d.Measure){ %>
+    <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
+      <div class="race"><%=d.Measure%></div>
+      <!-- <div class="sentence"><%=d.Summary%></div> -->
+      <div class="recommends">The Chronicle recommends</div>
+      <% if (d.Endorsement == "Yes") { %>
+        <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
+      <% } else if (d.Endorsement == "No") { %>
+        <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
+      <% } else { %>
+        <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> on <%=d.Measure%></div>
+      <% } %>
+      <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+    </div>
+  <% } else if (d.County){ %>
+    <div class="endorsements-box active <%=d.Tag.replace(',',' ')%>">
+      <div class="race"><%=d.County%></div>
+      <!-- <div class="sentence"><%=d.Summary%></div> -->
+        <div class="recommends">The Chronicle recommends</div>
+        <% if (d.Endorsement == "Yes") { %>
+          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+        <% } else if (d.Endorsement == "No") { %>
+          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+        <% } else { %>
+          <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+        <% } %>
+        <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+    </div>
+  <% } %>
+<% }); %>
+</div>
+
+<%= t.include("partials/_credits_edboard.html") %>
+
+<script src="../app.js?5" async></script>
+<%= t.include("partials/_footer.html") %>

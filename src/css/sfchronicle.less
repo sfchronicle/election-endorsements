@@ -244,18 +244,17 @@ text {
   right: 0;
 }
 
-// .speciallink {
-//   @media @mobile {
-//     display: none;
-//   }
-// }
-
 .specialhead-top {
   color: @highlight;
   font-family: @banner;
   font-size: 18px;
   text-transform: uppercase;
+  line-height: 1;
+  @media @mobile {
+    display: none;
+  }
 }
+
 
 .specialhead {
   text-align: center;
@@ -363,6 +362,9 @@ header {
       height: 16px;
       vertical-align: baseline;
 
+    }
+    @media @mobile {
+      margin-top: 2px;
     }
   }
 

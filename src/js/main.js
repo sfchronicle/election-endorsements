@@ -25,6 +25,10 @@ function capitalizeFirstLetter(string) {
 //   // $(this).find('.read-more-less').html("Read the coverage");
 // });
 
+document.getElementById("scroll-up-arrow-mobile").addEventListener("click",function(){
+  $('body, html').animate({scrollTop: pos_lower});
+});
+
 
 var centerButtons = document.getElementsByClassName("nav-filter-button");
 for (cidx=0; cidx < centerButtons.length; cidx++ ){
@@ -129,6 +133,12 @@ function activate() {
     $(".top-filter-button").addClass("displayclass");
   } else {
     $(".top-filter-button").removeClass("displayclass");
+  }
+
+  if (window_top < div_top) {
+    $("#scroll-up-arrow-mobile").addClass("hidearrow");
+  } else {
+    $("#scroll-up-arrow-mobile").removeClass("hidearrow");
   }
 
 }

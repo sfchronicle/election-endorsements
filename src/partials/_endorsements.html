@@ -7,7 +7,6 @@
   <div class="title">Voter Guide</div>
   <div class="intro">
     <div class="intro-line">The Chronicle urges all eligible voters to take part in the June 5 election. These are The Chronicle Editorial Board's recommendations, for your consideration before you fill out a ballot. Find comprehensive campaign and election coverage at our <a href="https://www.sfchronicle.com/elections/" target="_blank">Election 2018 page.</a> For details on how and where to vote, see <a href="http://www.sos.ca.gov/elections/where-and-how/" target="_blank">the state's website</a>.</div>
-    <div class="intro-line">To print this guide, click here.</div>
   </div>
 </div>
 
@@ -32,7 +31,15 @@
       <% if (d.Candidates){ %>
         <div class="candidates-wrapper">
           <% d.Candidates.forEach(function(candidate){ %>
-            <div class="candidate-line <%=d.Race%>"><i class="fa fa-user"></i><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
+            <div class="candidate-line <%=d.Race%>"><span class="party-icon <%=candidate.Party%>"><%=candidate.Party%></span><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%></div>
+          <% }); %>
+        </div>
+      <% } %>
+      <% if (d.Issues){ %>
+        <div class="issues-wrapper">
+          <div class="issues-hed">On the issues:</div>
+          <% d.Issues.forEach(function(issue){ %>
+            <div class="issue-line <%=d.Race%>"><a href="<%=issue.Link%>" target="_blank"><i class="fa fa-external-link"></i><%=issue.Issue%></a></div>
           <% }); %>
         </div>
       <% } %>
@@ -56,7 +63,7 @@
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <% if (d.PodcastID) { var podcastvis = "podcasticon" } else { var podcastvis = "" } %>
           <% if (d.VideoID) { var videovis = "videoicon" } else { var videovis = "" } %>
-          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">More coverage</span> <a href="#vid<%=dIDX%>"><i class="fa fa-video-camera <%=videovis%>"></i></a><a href="#pod<%=dIDX%>"><i class="fa fa-volume-up <%=podcastvis%>"></i></a><i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <a href="#vid<%=dIDX%>"><i class="fa fa-video-camera <%=videovis%>"></i></a><a href="#pod<%=dIDX%>"><i class="fa fa-volume-up <%=podcastvis%>"></i></a><i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
@@ -68,7 +75,7 @@
                 <div class="jw-wrapper" id="vid<%=dIDX%>"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
               <% } %>
               <% if (d.RelatedLinks){ %>
-                <div class="related-links-title">More coverage</div>
+                <div class="related-links-title">Our total coverage</div>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
                   <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i><%=link.Sentence%></div></a>
@@ -104,7 +111,7 @@
         <% } %>
         <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
-          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">More coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
@@ -116,7 +123,7 @@
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
               <% } %>
               <% if (d.RelatedLinks){ %>
-                <div class="related-links-title">More coverage</div>
+                <div class="related-links-title">Our total coverage</div>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
                   <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i><%=link.Sentence%></div></a>
@@ -146,7 +153,7 @@
         <% } %>
         <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
-          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">More coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
@@ -158,7 +165,7 @@
                 <div class="jw-wrapper"><div class='embed-container'><iframe src='https://content.jwplatform.com/players/<%=d.VideoID%>.html' style='border:0'></iframe></div></div>
               <% } %>
               <% if (d.RelatedLinks){ %>
-                <div class="related-links-title">More coverage</div>
+                <div class="related-links-title">Our total coverage</div>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
                   <div class="related-link-line"><a href="<%=link.Link%>"><i class="fa fa-external-link-square"></i><%=link.Sentence%></div></a>
