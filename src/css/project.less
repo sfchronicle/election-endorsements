@@ -6,6 +6,22 @@
   }
 }
 
+.link-to-full-guide, .link-to-short-list {
+  font-family: @bold-graphics;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.link-to-full-guide {
+  .fa {
+    padding-right: 10px;
+  }
+}
+.link-to-short-list {
+  .fa {
+    padding-left: 10px;
+  }
+}
+
 #scroll-up-arrow-mobile {
   display: none;
   @media @mobile {
@@ -116,7 +132,7 @@
   font-size: 16px;
   text-align: center;
   font-family: @bold-graphics;
-  padding: 10px 20px 30px 20px;
+  padding: 10px 20px 10px 20px;
   line-height: 1.2;
   @media @mobile {
     text-align: left;
@@ -262,6 +278,9 @@
   .align-items(normal);
   .endorsements-box {
     .flex(0 0 48%);
+    &.endorsements-smallbox {
+      .flex(0 0 30%);
+    }
     margin: 20px auto 0 auto;
     // background: lighten(@light-gray,17%);
     padding: 30px;
