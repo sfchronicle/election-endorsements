@@ -1,8 +1,8 @@
 {
   "year":"2018",
-  "author":"",
-  "hearst_category":"",
-  "date":"2018-01-02",
+  "author":"Editorial Board, John Diaz, Spencer Whitney, Trapper Byrne, Mark Lundgren, Emma O'Neill, and Todd Trumbull",
+  "hearst_category":"Politics",
+  "date":"2018-05-09",
   "url": "https://projects.sfchronicle.com/2018/",
   "hashtag":"Election2018",
   "image": "assets/Election2018static.png",
@@ -10,7 +10,8 @@
   "docsID":["16cfxudMU39X5pzz4b-klIITQT8b4WztJQob-5m58j9o"],
   "production": false,
   "embedded": false,
-  "paywall":"meterA",
+  "paywall":"meter",
+  "paywall_meta": 1,
 
   "slug": "voter-guide/",
   "twitter_text":"Voter guide: Comprehensive coverage of the June 5 election.",
