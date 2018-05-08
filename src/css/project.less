@@ -1,8 +1,7 @@
-
+//
 .speciallink {
   @media @mobile {
-    display: none;
-    padding: 0;
+    padding-top: 5px;
   }
 }
 
@@ -20,6 +19,15 @@
   .fa {
     padding-left: 10px;
   }
+  @media @mobile {
+    padding-top: 10px;
+  }
+}
+
+.story-link, .video-link {
+  padding-left: 10px;
+  display: inline-block;
+  font-family: @block-graphics;
 }
 
 #scroll-up-arrow-mobile {
@@ -135,7 +143,7 @@
   padding: 10px 20px 10px 20px;
   line-height: 1.2;
   @media @mobile {
-    text-align: left;
+    // text-align: left;
     padding-top: 30px;
   }
 }
@@ -280,6 +288,10 @@
     .flex(0 0 48%);
     &.endorsements-smallbox {
       .flex(0 0 30%);
+      @media @mobile {
+        .flex( 0 0 95%);
+        padding: 10px;
+      }
     }
     margin: 20px auto 0 auto;
     // background: lighten(@light-gray,17%);
@@ -344,6 +356,9 @@
       }
       &.No {
         color: @red;
+      }
+      &.noendorsement {
+        color: @light-gray;
       }
     }
   }
@@ -426,6 +441,7 @@
     }
     .podcast-wrapper {
       max-width: 600px;
+      margin-bottom: 30px;
       @media @mobile {
         margin-bottom: 30px;
       }
@@ -607,11 +623,8 @@
 }
 
 .fa-video-camera {
-  display: none;
-  &.videoicon {
-    display: inline-block;
-    margin: 0 5px;
-  }
+  // margin-left: 10px;
+  color: @highlight;
 }
 
 #map-container-state {
@@ -739,10 +752,10 @@
   .candidate-line {
     font-size: 15px;
     padding-bottom: 10px;
-    .fa {
-      color: @dark-gray;
-      margin-right: 5px;
-    }
+    // .fa {
+    //   color: @dark-gray;
+    //   margin-right: 5px;
+    // }
     .flex(0 0 50%);
     @media @mobile {
       .flex(0 0 100%);
