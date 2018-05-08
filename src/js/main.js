@@ -34,7 +34,7 @@ for (var t = 0; t < videoButtons.length; t++){
     td.addEventListener('click', function(){
       console.log(this.id.split("video")[1])
       document.getElementsByClassName('video-wrapper')[0].classList.add("show");
-      document.getElementById("embedded-video").innerHTML = "<iframe src='https://content.jwplatform.com/players/"+this.id.split("video")[1]+".html' style='border:0'></iframe>";
+      document.getElementById("embedded-video").innerHTML = "<iframe allowfullscreen src='https://content.jwplatform.com/players/"+this.id.split("video")[1]+".html' style='border:0'></iframe>";
       $('body').addClass('noscroll');
       document.getElementById("video-exit").classList.add('show');
     });
