@@ -25,6 +25,29 @@ function capitalizeFirstLetter(string) {
 //   // $(this).find('.read-more-less').html("Read the coverage");
 // });
 
+// <iframe src='https://content.jwplatform.com/players/.html' style='border:0'></iframe>
+
+var videoButtons = document.getElementsByClassName("video-link");
+for (var t = 0; t < videoButtons.length; t++){
+  var td = document.getElementById(videoButtons[t].id);
+  (function (_td) {
+    td.addEventListener('click', function(){
+      console.log(this.id.split("video")[1])
+      document.getElementsByClassName('video-wrapper')[0].classList.add("show");
+      document.getElementById("embedded-video").innerHTML = "<iframe src='https://content.jwplatform.com/players/"+this.id.split("video")[1]+".html' style='border:0'></iframe>";
+      $('body').addClass('noscroll');
+      document.getElementById("video-exit").classList.add('show');
+    });
+  })(td);
+}
+
+document.getElementById("video-exit").addEventListener("click",function(){
+  this.classList.remove("show");
+  document.getElementsByClassName('video-wrapper')[0].classList.remove("show");
+  $("body").removeClass("noscroll");
+  document.getElementById("embedded-video").innerHTML = "";
+});
+
 document.getElementById("scroll-up-arrow-mobile").addEventListener("click",function(){
   $('body, html').animate({scrollTop: pos_lower});
 });

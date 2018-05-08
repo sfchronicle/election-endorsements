@@ -6,7 +6,7 @@
   </div>
   <div class="title">Voter Guide</div>
   <div class="intro">
-    <div class="intro-line">The Chronicle urges all eligible voters to take part in the June 5 election. These are The Chronicle Editorial Board's recommendations, for your consideration before you fill out a ballot. Find comprehensive campaign and election coverage at our <a href="https://www.sfchronicle.com/elections/" target="_blank">Election 2018 page.</a> For details on how and where to vote, see <a href="http://www.sos.ca.gov/elections/where-and-how/" target="_blank">the state's website</a>.</div>
+    <div class="intro-line">The Chronicle urges all voters to take part in the June 5 election. Here is our guide to the ballot measures and races that state and local voters will be deciding. For additional campaign coverage, visit our <a href="https://www.sfchronicle.com/elections/" target="_blank">Election 2018 page.</a> For details on how and where to vote, see <a href="http://www.sos.ca.gov/elections/where-and-how/" target="_blank">the state's website</a>.</div>
   </div>
 
   <div class="link-to-short-list"><a href="./endorsements-list">View endorsements list<i class="fa fa-angle-double-right"></i></a></div>
@@ -34,7 +34,7 @@
       <% if (d.Candidates){ %>
         <div class="candidates-wrapper">
           <% d.Candidates.forEach(function(candidate){ %>
-            <div class="candidate-line <%=d.Race%>"><span class="party-icon <%=candidate.Party%>"><%=candidate.Party%></span><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%><% if (candidate.Story) { %><span class="story-link"><a href="<%=candidate.Story%>"><i class="fa fa-external-link-square"></i> Story</a></span><% } %><% if (candidate.Video) { %><span class="video-link"><a href="<%=candidate.Video%>"><i class="fa fa-video-camera"></i> Video</a></span><% } %></div>
+            <div class="candidate-line <%=d.Race%>"><span class="party-icon <%=candidate.Party%>"><%=candidate.Party%></span><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%><% if (candidate.Story) { %><span class="story-link"><a href="<%=candidate.Story%>"><i class="fa fa-external-link-square"></i> Story</a></span><% } %><% if (candidate.Video) { %><span class="video-link" id="video<%=candidate.VideoID%>"><i class="fa fa-video-camera"></i> Video</span><% } %></div>
           <% }); %>
         </div>
       <% } %>
@@ -169,4 +169,9 @@
     </div>
   <% } %>
 <% }); %>
+</div>
+
+<div class="video-wrapper">
+  <div class="exit-button" id="video-exit"><i class="fa fa-times"></i></div>
+  <div class="video-overlay"><div class="jw-wrapper"><div class='embed-container'><div id="embedded-video"></div></div></div></div>
 </div>
