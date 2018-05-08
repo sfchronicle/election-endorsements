@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="__sync_contentCategory" content="<%= json.project.paywall %>">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../style.css?10">
+    <link rel="stylesheet" type="text/css" href="../style.css?11">
     <%= t.include("partials/_meta.html") %>
     <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
   </head>
@@ -29,42 +29,41 @@
 
 <div class="endorsements-container">
 <% json.sf_chronicle_endorsements_list.endorsements.forEach(function(d,dIDX) { %>
-  <% if (d.Race){ %>
-    <div class="endorsements-box endorsements-smallbox active <%=d.Tag.replace(',',' ')%>">
-      <div class="race"><%=d.Race%></div>
-      <!-- <div class="sentence"><%=d.Summary%></div> -->
-      <div class="recommends">The Chronicle recommends</div>
-      <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
-      <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-      </div>
-  <% } else if (d.Measure){ %>
-    <div class="endorsements-box endorsements-smallbox active <%=d.Tag.replace(',',' ')%>">
-      <div class="race"><%=d.Measure%></div>
-      <!-- <div class="sentence"><%=d.Summary%></div> -->
-      <div class="recommends">The Chronicle recommends</div>
-      <% if (d.Endorsement == "Yes") { %>
-        <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
-      <% } else if (d.Endorsement == "No") { %>
-        <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
-      <% } else { %>
-        <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span> on <%=d.Measure%></div>
-      <% } %>
-      <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-    </div>
-  <% } else if (d.County){ %>
-    <div class="endorsements-box endorsements-smallbox active <%=d.Tag.replace(',',' ')%>">
-      <div class="race"><%=d.County%></div>
-      <!-- <div class="sentence"><%=d.Summary%></div> -->
-        <div class="recommends">The Chronicle recommends</div>
+  <% if (d.Article){ %>
+    <% if (d.Race){ %>
+      <div class="endorsements-box endorsements-smallbox active <%=d.Tag.replace(',',' ')%>">
+        <div class="race"><%=d.Race%></div>
+        <div class="recommends recommends-smallbox">The Chronicle recommends</div>
+        <div class="recommendation-line"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span></div>
+        <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+        </div>
+    <% } else if (d.Measure){ %>
+      <div class="endorsements-box endorsements-smallbox active <%=d.Tag.replace(',',' ')%>">
+        <div class="race"><%=d.Measure%></div>
+        <div class="recommends recommends-smallbox">The Chronicle recommends</div>
         <% if (d.Endorsement == "Yes") { %>
-          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
         <% } else if (d.Endorsement == "No") { %>
-          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
         <% } else { %>
-          <div class="recommendation-line"><span class="recommendation"><%=d.Endorsement%></span></div>
+          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span> on <%=d.Measure%></div>
         <% } %>
         <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
-    </div>
+      </div>
+    <% } else if (d.County){ %>
+      <div class="endorsements-box endorsements-smallbox active <%=d.Tag.replace(',',' ')%>">
+        <div class="race"><%=d.County%></div>
+          <div class="recommends recommends-smallbox">The Chronicle recommends</div>
+          <% if (d.Endorsement == "Yes") { %>
+            <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-check"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+          <% } else if (d.Endorsement == "No") { %>
+            <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.County%></div>
+          <% } else { %>
+            <div class="recommendation-line"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span></div>
+          <% } %>
+          <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+      </div>
+    <% } %>
   <% } %>
 <% }); %>
 </div>

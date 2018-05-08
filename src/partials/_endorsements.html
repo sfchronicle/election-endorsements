@@ -53,14 +53,14 @@
           <div class="prop-icon prop-icon-left"><img src="./assets/graphics/<%=d.Icon%>"></img></div>
           <div class="other-sub-box">
             <div class="recommends">The Chronicle recommends</div>
-            <div class="recommendation-line"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span></div>
-            <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+            <div class="recommendation-line <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span></div>
+            <% if (d.Article) { %><div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div><% } %>
           </div>
           </div>
         <% }  else { %>
           <div class="recommends">The Chronicle recommends</div>
-          <div class="recommendation-line"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span></div>
-          <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+          <div class="recommendation-line <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span></div>
+          <% if (d.Article) { %><div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div><% } %>
         <% } %>
 
         <% if (d.PodcastID || d.RelatedLinks){ %>
@@ -105,9 +105,9 @@
         <% } else if (d.Endorsement == "No") { %>
           <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.Measure%></div>
         <% } else { %>
-          <div class="recommendation-line"><span class="recommendation noendorsement"><%=d.Endorsement%></span> on <%=d.Measure%></div>
+          <div class="recommendation-line <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><span class="recommendation noendorsement"><%=d.Endorsement%></span> on <%=d.Measure%></div>
         <% } %>
-        <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+        <% if (d.Article) { %><div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div><% } %>
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
@@ -143,9 +143,9 @@
         <% } else if (d.Endorsement == "No") { %>
           <div class="recommendation-line"><span class="recommendation <%=d.Endorsement%>"><i class="fa fa-times"></i><%=d.Endorsement%></span> on <%=d.County%></div>
         <% } else { %>
-          <div class="recommendation-line"><span class="recommendation noendorsement"><%=d.Endorsement%></span></div>
+          <div class="recommendation-line <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span></div>
         <% } %>
-        <div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div>
+        <% if (d.Article) { %><div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div><% } %>
         <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
           <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
