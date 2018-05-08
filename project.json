@@ -1,19 +1,27 @@
 {
   "year":"2018",
-  "title": "Voter guide: Recommendations and information for the June 5 election",
-  "description": "Election 2018: Read The Chronicle Editorial Board's endorsements for local, state and federal races to get informed before you fill out your ballot.",
-  "seo_title": "",
   "author":"",
   "hearst_category":"",
   "date":"2018-01-02",
   "url": "https://projects.sfchronicle.com/2018/",
-  "slug": "voter-guide/",
-  "twitter_text":"Voter guide: Read The Chronicle's recommendations for the June 5 election.",
   "hashtag":"Election2018",
   "image": "assets/Election2018static.png",
   "sheets": ["1HwbAVIe27c9ue7KkhzCBrt3RL8hFip_VHOeVk7KIkWg"],
   "docsID":["16cfxudMU39X5pzz4b-klIITQT8b4WztJQob-5m58j9o"],
   "production": false,
   "embedded": false,
-  "paywall":"meterA"
+  "paywall":"meterA",
+
+  "slug": "voter-guide/",
+  "twitter_text":"Voter guide: Comprehensive coverage of the June 5 election.",
+  "title": "Voter guide: Comprehensive coverage of the June 5 election.",
+  "description": "Read candidate profiles, pro/con arguments and more to get informed before you fill out your ballot.",
+  "seo_title": "",
+
+  "slug_list": "endorsements-list/",
+  "title_list": "Voter guide: Recommendations for the June 5 election",
+  "description_list": "Here's a handy list of The Chronicle Editorial Board's endorsements",
+  "twitter_text_list":"Voter guide: Here's a handy list of The Chronicle's recommendations for the June 5 election.",
+  "seo_title_list": ""
+
 }
