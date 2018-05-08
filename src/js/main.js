@@ -16,17 +16,6 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// // hide the about the data box
-// document.body.addEventListener("click",function() {
-//   console.log("CLICK");
-//   // var buttonidx = _td.id.split("exit-")[1];
-//   // $("#extras-"+buttonidx).removeClass("show");
-//   $('body').removeClass('noscroll');
-//   // $(this).find('.read-more-less').html("Read the coverage");
-// });
-
-// <iframe src='https://content.jwplatform.com/players/.html' style='border:0'></iframe>
-
 var videoButtons = document.getElementsByClassName("video-link");
 for (var t = 0; t < videoButtons.length; t++){
   var td = document.getElementById(videoButtons[t].id);

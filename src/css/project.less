@@ -34,7 +34,7 @@
   &.show {
     display: block;
   }
-  @media @mobile {
+  @media @width1100 {
     top: 60px;
   }
 }
@@ -449,9 +449,13 @@
     background: white;
     width: 80%;
     margin: 60px auto 40px auto;
-    max-width: 680px;
+    max-width: 1000px;
     padding: 40px;
-    @media @mobile {
+    @media @width2060 {
+      margin-top: 100px;
+      max-width: 800px;
+    }
+    @media @width1100 {
       width: 95%;
       padding: 0;
       margin: 150px auto 40px auto;
