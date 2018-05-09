@@ -14,15 +14,15 @@
   "paywall_meta": 1,
 
   "slug": "voter-guide/",
-  "twitter_text":"Voter guide: Comprehensive coverage of the June 5 election.",
-  "title": "Voter guide: Comprehensive coverage of the June 5 election.",
-  "description": "Read candidate profiles, pro/con arguments and more to get informed before you fill out your ballot.",
-  "seo_title": "",
+  "twitter_text":"Voter guide: Here's what you need to know for the June 5 election.",
+  "title": "Voter guide: What you need to know for the June 5 election",
+  "description": "Get informed before you fill out your ballot. Here's our guide to the measures and races that state and local voters will be deciding. Read candidate profiles, pro/con arguments and more.",
+  "seo_title": "California voter guide: What you need to know for the June 5 election",
 
   "slug_list": "endorsements-list/",
-  "title_list": "Voter guide: Recommendations for the June 5 election",
-  "description_list": "Here's a handy list of The Chronicle Editorial Board's endorsements",
   "twitter_text_list":"Voter guide: Here's a handy list of The Chronicle's recommendations for the June 5 election.",
-  "seo_title_list": ""
+  "title_list": "Voter guide: The Chronicle's Editorial Board endorsements",
+  "description_list": "Here are The Chronicle's recommendations on statewide and city races and measures on the June 5 ballot, as well as selected regional issues. These endorsements are made by the Editorial Board after researching the issues and interviewing the candidates.",
+  "seo_title_list": "California voter guide: San Francisco Chronicle recommendations for the June 5 election"
 
 }

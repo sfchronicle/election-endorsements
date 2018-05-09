@@ -33,7 +33,7 @@
       <% if (d.Candidates){ %>
         <div class="candidates-wrapper">
           <% d.Candidates.forEach(function(candidate){ %>
-            <div class="candidate-line <%=d.Race%>"><span class="party-icon <%=candidate.Party%>"><%=candidate.Party%></span><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%><% if (candidate.Story) { %><span class="story-link"><a href="<%=candidate.Story%>"><i class="fa fa-external-link-square"></i> Story</a></span><% } %><% if (candidate.Video) { %><span class="video-link" id="video<%=candidate.VideoID%>"><i class="fa fa-video-camera"></i> Video</span><% } %></div>
+            <div class="candidate-line <%=d.Race%>"><span class="party-icon <%=candidate.Party%>"><%=candidate.Party%></span><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%><% if (candidate.Story) { %><span class="story-link"><a href="<%=candidate.Story%>"><i class="fa fa-external-link-square"></i> Story</a></span><% } %><% if (candidate.Video) { %><span class="video-link" id="video<%=candidate.VideoID%>"><i class="fa fa-video-camera"></i> Video</span><% } %><% if (candidate.Podcast) { %><span class="podcast-link" id="PODCAST<%=candidate.Podcast%>"><i class="fa fa-volume-up"></i> Podcast</span><% } %></div>
           <% }); %>
         </div>
       <% } %>
@@ -48,7 +48,7 @@
       <% if (d.Endorsement){ %>
 
         <% if (d.Icon && d.Candidates){ %>
-          <div class="endorsement-info">
+          <div class="endorsement-info RACE<%=d.Race%>">
           <div class="prop-icon prop-icon-left"><img src="./assets/graphics/<%=d.Icon%>"></img></div>
           <div class="other-sub-box">
             <div class="recommends">The Chronicle recommends</div>
@@ -62,16 +62,12 @@
           <% if (d.Article) { %><div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div><% } %>
         <% } %>
 
-        <% if (d.PodcastID || d.RelatedLinks){ %>
-          <% if (d.PodcastID) { var podcastvis = "podcasticon" } else { var podcastvis = "" } %>
-          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <a href="#vid<%=dIDX%>"></a><a href="#pod<%=dIDX%>"><i class="fa fa-volume-up <%=podcastvis%>"></i></a><i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
+        <% if (d.RelatedLinks){ %>
+          <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
               <div class="race"><%=d.Race%></div>
-              <% if (d.PodcastID){ %>
-                <div class="podcast-wrapper" id="pod<%=dIDX%>"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>?"></iframe></div>
-              <% } %>
               <% if (d.RelatedLinks){ %>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
@@ -107,15 +103,12 @@
           <div class="recommendation-line <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><span class="recommendation noendorsement"><%=d.Endorsement%></span> on <%=d.Measure%></div>
         <% } %>
         <% if (d.Article) { %><div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div><% } %>
-        <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
+        <% if (d.RelatedLinks){ %>
           <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
               <div class="race"><%=d.Measure%></div>
-              <% if (d.PodcastID){ %>
-                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>?"></iframe></div>
-              <% } %>
               <% if (d.RelatedLinks){ %>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
@@ -145,15 +138,12 @@
           <div class="recommendation-line <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><span class="recommendation <%=d.Endorsement.toLowerCase().replace(/ /g,'')%>"><%=d.Endorsement%></span></div>
         <% } %>
         <% if (d.Article) { %><div class="link editorial-link"><a href="<%=d.Article%>" target="_blank">Our editorial <i class="fa fa-angle-double-right"></i></a></div><% } %>
-        <% if (d.PodcastID || d.VideoID || d.RelatedLinks){ %>
+        <% if (d.RelatedLinks){ %>
           <div class="see-more-mobile" id="read-more-<%=dIDX%>"><span class="read-more-less">Our total coverage</span> <i class="fa fa-expand"></i><i class="fa fa-caret-down caretclass"></i></div>
           <div class="extras-wrapper"  id="extras-<%=dIDX%>">
             <div class="extras-overlay">
               <div class="exit-button" id="exit-<%=dIDX%>"><i class="fa fa-times"></i></div>
               <div class="race"><%=d.County%></div>
-              <% if (d.PodcastID){ %>
-                <div class="podcast-wrapper"><iframe is="responsive-iframe" interval="0" src="<%=d.PodcastID%>?"></iframe></div>
-              <% } %>
               <% if (d.RelatedLinks){ %>
                 <div class="related-links-wrapper">
                 <% d.RelatedLinks.forEach(function(link){ %>
@@ -173,4 +163,9 @@
 <div class="video-wrapper">
   <div class="exit-button" id="video-exit"><i class="fa fa-times"></i></div>
   <div class="video-overlay"><div class="jw-wrapper"><div class='embed-container'><div id="embedded-video"></div></div></div></div>
+</div>
+
+<div class="podcast-wrapper">
+  <div class="exit-button" id="podcast-exit"><i class="fa fa-times"></i></div>
+  <div class="podcast-overlay"><div class="podcast-padding"><div id="embedded-podcast"></div></div></div>
 </div>

@@ -16,6 +16,20 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+var podcastButtons = document.getElementsByClassName("podcast-link");
+for (var t = 0; t < podcastButtons.length; t++){
+  var td = document.getElementById(podcastButtons[t].id);
+  (function (_td) {
+    td.addEventListener('click', function(){
+      console.log(this.id.split("PODCAST")[1])
+      document.getElementsByClassName('podcast-wrapper')[0].classList.add("show");
+      document.getElementById("embedded-podcast").innerHTML = "<iframe is='responsive-iframe' interval='0' src='"+this.id.split("PODCAST")[1]+"'></iframe>";
+      $('body').addClass('noscroll');
+      document.getElementById("podcast-exit").classList.add('show');
+    });
+  })(td);
+}
+
 var videoButtons = document.getElementsByClassName("video-link");
 for (var t = 0; t < videoButtons.length; t++){
   var td = document.getElementById(videoButtons[t].id);
@@ -29,6 +43,13 @@ for (var t = 0; t < videoButtons.length; t++){
     });
   })(td);
 }
+
+document.getElementById("podcast-exit").addEventListener("click",function(){
+  this.classList.remove("show");
+  document.getElementsByClassName('podcast-wrapper')[0].classList.remove("show");
+  $("body").removeClass("noscroll");
+  document.getElementById("embedded-podcast").innerHTML = "";
+});
 
 document.getElementById("video-exit").addEventListener("click",function(){
   this.classList.remove("show");
