@@ -33,7 +33,7 @@
       <% if (d.Candidates){ %>
         <div class="candidates-wrapper">
           <% d.Candidates.forEach(function(candidate){ %>
-            <div class="candidate-line <%=d.Race%>"><span class="party-icon <%=candidate.Party%>"><%=candidate.Party%></span><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%><% if (candidate.Story) { %><span class="story-link"><a href="<%=candidate.Story%>"><i class="fa fa-external-link-square"></i> Story</a></span><% } %><% if (candidate.Video) { %><span class="video-link" id="video<%=candidate.VideoID%>"><i class="fa fa-video-camera"></i> Video</span><% } %><% if (candidate.Podcast) { %><span class="podcast-link" id="PODCAST<%=candidate.Podcast%>"><i class="fa fa-volume-up"></i> Podcast</span><% } %></div>
+            <div class="candidate-line <%=d.Race%>"><span class="party-icon <%=candidate.Party%>"><%=candidate.Party%></span><span class="candidate-name"><%=candidate.Name%></span> <%=candidate.Candidate%><% if (candidate.Story) { %><span class="story-link"><a href="<%=candidate.Story%>"><i class="fa fa-external-link-square"></i> Story</a></span><% } %><% if (candidate.Video) { %><span class="video-link" id="video<%=candidate.VideoID%>"><i class="fa fa-video-camera"></i> Video</span><% } %><% if (candidate.Podcast) { %><span class="podcast-link" id="PODCAST<%=candidate.Podcast%>"><i class="fa fa-volume-up"></i> Opinion podcast</span><% } %><% if (candidate.Podcast2) { %><span class="podcast-link" id="PODCAST<%=candidate.Podcast2%>"><i class="fa fa-volume-up"></i> News podcast</span><% } %></div>
           <% }); %>
         </div>
       <% } %>
