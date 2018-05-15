@@ -643,6 +643,9 @@
   width: 98%;
   margin: 0 auto;
   padding: 10px;
+  @media @mobile {
+    padding: 10px 0;
+  }
   // border: 1px solid @light-gray;
   .source, .credit, .aboutdata {
     margin-top: -10px;
@@ -650,13 +653,16 @@
     padding-top: 5px;
     padding-left: 50px;
     @media @tablet-horiz {
-      // padding: 0;
+      padding: 0;
       padding-left: 10px;
     }
     @media @mobile {
       margin-top: 10px;
       padding: 0;
     }
+  }
+  .source {
+    padding-top: 10px;
   }
   .aboutdata {
     margin-top: 0;
@@ -869,6 +875,7 @@
     .legendtext {
       margin-left: 5px;
       float: left;
+      padding-top: 2px;
     }
     .legendbox {
       height: 14px;
@@ -881,7 +888,8 @@
       &.rep { background: #EC1C24;}
       &.rep25 { background: lighten(#EC1C24,10%);}
       &.rep50 { background: lighten(#EC1C24,20%);}
-      &.tossup { background: #B34ABF;}
+      &.tossupr { background: #BF4A8E;}
+      &.tossupd { background: #674ABF;}
     }
   }
 }

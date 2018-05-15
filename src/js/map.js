@@ -33,7 +33,6 @@ function shadeColor2(color, percent) {
 // function for coloring map
 function color_Cook(lean){
   if (lean == "Solid Republican"){
-    console.log(red);
     return red;//"#EF3E36";
   } else if (lean == "Solid Democratic"){
     return blue;//"#2176AE";
@@ -41,15 +40,17 @@ function color_Cook(lean){
     return shadeColor2(red,0.25);//"#FF934F";
   } else if (lean == "Likely Democratic"){
     return shadeColor2(blue,0.25);//"#57B8FF";
-  } else if (lean == "Toss-up"){
-    return "#B34ABF";
+  } else if (lean == "Toss-Up Republican"){
+    return "#BF4A8E";
+  } else if (lean == "Toss-Up Democratic"){
+    return "#674ABF";
   } else if (lean == "Lean Republican"){
     return shadeColor2(red,0.50);//"#FFC682";
   } else if (lean == "Lean Democratic"){
-    console.log(shadeColor2(blue,0.50));
     return shadeColor2(blue,0.50);//"#8AEBFF";
   } else {
-    return white;
+    console.log("ERROR");
+    return "#FFFFFF";
   }
 }
 
@@ -62,9 +63,7 @@ function color_Cook(lean){
 var catimer_races;
 var active_map = "./assets/maps/ca_house_insets.json";
 
-d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_house.json", function(error,data){
-
-  console.log(HouseData);
+d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_house.json", function(error,HouseData){
 
   var path = d3.geo.path()
     .projection(null);
@@ -98,10 +97,8 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
       .attr("class", "states")
       .attr("d",path)
       .style("fill", function(d) {
-        var location = d.id;
-        if (HouseData[+d.id]) {
-          var tempvar = HouseData[+d.id];
-          return color_Cook(tempvar.Cook);
+        if (HouseData[d.id]) {
+          return color_Cook(HouseData[d.id].Cook);
         } else {
           return "white";//fill(path.area(d));
         }
@@ -109,7 +106,7 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
       .attr("d", path)
       .on('mouseover', function(d,index) {
         if (d.id != 0) {
-          var html_str = tooltip_function(HouseData[+d.id],d.properties);
+          var html_str = tooltip_function(HouseData[d.id],d.properties);
           state_tooltip.html(html_str);
           if (!iOS){
             state_tooltip.style("visibility", "visible");
