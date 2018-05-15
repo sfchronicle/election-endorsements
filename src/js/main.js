@@ -18,8 +18,9 @@ function capitalizeFirstLetter(string) {
 
 var podcastButtons = document.getElementsByClassName("podcast-link");
 for (var t = 0; t < podcastButtons.length; t++){
-  var td = document.getElementById(podcastButtons[t].id);
-  (function (_td) {
+  var td = podcastButtons[t];
+  // var td = document.getElementById(podcastButtons[t].id);
+  (function (td) {
     td.addEventListener('click', function(){
       document.getElementsByClassName('podcast-wrapper')[0].classList.add("show");
       document.getElementById("embedded-podcast").innerHTML = "<iframe is='responsive-iframe' interval='0' src='"+this.id.split("PODCAST")[1]+"'></iframe>";
@@ -32,7 +33,7 @@ for (var t = 0; t < podcastButtons.length; t++){
 var videoButtons = document.getElementsByClassName("video-link");
 for (var t = 0; t < videoButtons.length; t++){
   var td = document.getElementById(videoButtons[t].id);
-  (function (_td) {
+  (function (td) {
     td.addEventListener('click', function(){
       document.getElementsByClassName('video-wrapper')[0].classList.add("show");
       document.getElementById("embedded-video").innerHTML = "<iframe allowfullscreen src='https://content.jwplatform.com/players/"+this.id.split("video")[1]+".html' style='border:0'></iframe>";
@@ -113,9 +114,9 @@ for (var fidx = 0; fidx < filterButtons.length; fidx++ ){
 var seemoreButtons = document.getElementsByClassName("see-more-mobile")
 for (var t = 0; t < seemoreButtons.length; t++){
   var td = document.getElementById(seemoreButtons[t].id);
-  (function (_td) {
+  (function (td) {
     td.addEventListener('click', function(){
-      var buttonidx = _td.id.split("read-more-")[1];
+      var buttonidx = td.id.split("read-more-")[1];
       if (document.getElementById("extras-"+buttonidx).classList.contains("show")){
         $("#extras-"+buttonidx).removeClass("show");
         $('body').removeClass('noscroll');
@@ -140,9 +141,9 @@ if (screen.width >= 480) {
   var exitButtons = document.getElementsByClassName("exit-button")
   for (var t = 0; t < exitButtons.length; t++){
     var td = document.getElementById(exitButtons[t].id);
-    (function (_td) {
+    (function (td) {
       td.addEventListener('click', function(){
-        var buttonidx = _td.id.split("exit-")[1];
+        var buttonidx = td.id.split("exit-")[1];
         $("#extras-"+buttonidx).removeClass("show");
         $('body').removeClass('noscroll');
         $(this).find('.read-more-less').html("Read the coverage");
