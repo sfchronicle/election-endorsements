@@ -584,7 +584,12 @@
   min-width: 140px;
   position: absolute;
   z-index: 9999;
-  // visibility: hidden;
+  &.hidden {
+    visibility: hidden;
+    height:0;
+    width:0;
+    padding:0;
+  }
   .fa-check-circle-o {
     color: green;
     margin-right: 5px;
@@ -717,10 +722,11 @@
   @media @mobile {
     margin-bottom: 6%;
   }
-  pointer-events: all;
-  &.noclick {
-    pointer-events: none;
-  }
+  z-index: 1;
+  // pointer-events: all;
+  // &.noclick {
+  //   pointer-events: none;
+  // }
 }
 
 .states {

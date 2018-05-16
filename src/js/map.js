@@ -63,6 +63,12 @@ function color_Cook(lean){
 var catimer_races;
 var active_map = "./assets/maps/ca_house_insets.json";
 
+// important elements
+var inner_tooltip = d3.select("#inner-tooltip");
+var tooltip = document.getElementById("tooltip");
+var d3tooltip = d3.select("#tooltip");
+var map_body = document.getElementById("map-container-state");
+
 d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_house.json", function(error,HouseData){
 
   var path = d3.geo.path()
@@ -74,8 +80,6 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
     d3.select("#map-container-state").select(".svg-container").remove();
     d3.select("#map-container-state").select(".label-LA").remove();
     d3.select("#map-container-state").select(".label-SF").remove();
-
-    var map_body = document.getElementById("map-container-state");
 
     // CA map by county
     var svgCACounties = d3.select("#map-container-state")
@@ -110,14 +114,14 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
         if (d.id != 0) {
           var html_str = tooltip_function(HouseData[d.id],d.properties);
           inner_tooltip.html(html_str);
-          tooltip.style("visibility", "visible");
+          tooltip.classList.remove("hidden");
         }
       })
       .on('click', function(d,index) {
         if (d.id != 0) {
           var html_str = tooltip_function(HouseData[d.id],d.properties);
           inner_tooltip.html(html_str);
-          tooltip.style("visibility", "visible");
+          tooltip.classList.remove("hidden");
           map_body.classList.add("noclick");
         }
       })
@@ -129,17 +133,20 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
         var offsetLeft = d3.event.pageX - (document.getElementById("map-container-state").getBoundingClientRect().left + document.body.scrollLeft);
         var containerSize = document.getElementById("map-container-state").offsetWidth
         if (offsetLeft/containerSize > 0.5){
-          return tooltip
+          return d3tooltip
             .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
             .style("left",((d3.event.pageX)-120)+"px");
         } else {
-          return tooltip
+          return d3tooltip
             .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
             .style("left",((d3.event.pageX)+10)+"px");
         }
       })
       .on("mouseout", function(){
-        return tooltip.style("visibility", "hidden");
+        if (screen.width >= 480){
+          map_body.classList.remove("noclick");
+          tooltip.classList.add("hidden");
+        };
       });
 
     });
@@ -159,10 +166,6 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
       .style("z-index", "5")
       .text("Bay Area")
 
-    // show tooltip
-    var inner_tooltip = d3.select("#inner-tooltip");
-    var tooltip = d3.select("#tooltip");
-
   };
 
   camap_insets_function();
@@ -174,7 +177,6 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
 });
 
 document.getElementById("close-tooltip").addEventListener("click",function(){
-  console.log("closing tooltip");
-  tooltip.style("visibility","hidden");
+  tooltip.classList.add("hidden");
   map_body.classList.remove("noclick");
 });
