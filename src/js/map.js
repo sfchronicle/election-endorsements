@@ -118,15 +118,17 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
           var html_str = tooltip_function(HouseData[d.id],d.properties);
           inner_tooltip.html(html_str);
           tooltip.style("visibility", "visible");
-          console.log("no click on map");
-          // $("#map-container-state").addClass("noclick");
-          console.log(map_body);
           map_body.classList.add("noclick");
         }
       })
       .on("mousemove", function() {
+        // this is me being very clever
+        // "offsetLeft" is the position of the mouse relative to the container div, aka "map-container-state"
+        // "containerSize" is the size of the container div
+        // the division is supposed to tell you if the mouse is on the right half or the left so you can flip the tooltip if needed
         var offsetLeft = d3.event.pageX - (document.getElementById("map-container-state").getBoundingClientRect().left + document.body.scrollLeft);
-        if (offsetLeft/document.getElementById("map-container-state").offsetWidth > 0.5){
+        var containerSize = document.getElementById("map-container-state").offsetWidth
+        if (offsetLeft/containerSize > 0.5){
           return tooltip
             .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
             .style("left",((d3.event.pageX)-120)+"px");
@@ -135,19 +137,6 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
             .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
             .style("left",((d3.event.pageX)+10)+"px");
         }
-        // if (screen.width <= 480) {
-        //   return tooltip
-        //     .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-        //     .style("left",((d3.event.pageX)/2+60)+"px");
-        // } else if (screen.width <= 670) {
-        //   return tooltip
-        //     .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-        //     .style("left",((d3.event.pageX)/2+50)+"px");
-        // } else {
-        //   return tooltip
-        //     .style("top", (d3.event.pageY+20)+"px")
-        //     .style("left",(d3.event.pageX-80)+"px");
-        // }
       })
       .on("mouseout", function(){
         return tooltip.style("visibility", "hidden");
@@ -177,7 +166,6 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
   };
 
   camap_insets_function();
-  // camap_insets_function("./assets/maps/ca_house_insets.json",houseCA,0);
   catimer_races = setInterval(function() {
     camap_insets_function();
     console.log("refresh ca insets map");
