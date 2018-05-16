@@ -583,8 +583,8 @@
   border: 1px @dark-gray solid;
   min-width: 140px;
   position: absolute;
-  z-index: 10;
-  visibility: hidden;
+  z-index: 9999;
+  // visibility: hidden;
   .fa-check-circle-o {
     color: green;
     margin-right: 5px;
@@ -718,10 +718,9 @@
     margin-bottom: 6%;
   }
   pointer-events: all;
-  .noclick {
+  &.noclick {
     pointer-events: none;
   }
-  // padding-bottom:
 }
 
 .states {

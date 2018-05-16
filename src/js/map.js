@@ -118,23 +118,36 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
           var html_str = tooltip_function(HouseData[d.id],d.properties);
           inner_tooltip.html(html_str);
           tooltip.style("visibility", "visible");
+          console.log("no click on map");
+          // $("#map-container-state").addClass("noclick");
+          console.log(map_body);
           map_body.classList.add("noclick");
         }
       })
       .on("mousemove", function() {
-        if (screen.width <= 480) {
+        var offsetLeft = d3.event.pageX - (document.getElementById("map-container-state").getBoundingClientRect().left + document.body.scrollLeft);
+        if (offsetLeft/document.getElementById("map-container-state").offsetWidth > 0.5){
           return tooltip
             .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-            .style("left",((d3.event.pageX)/2+60)+"px");
-        } else if (screen.width <= 670) {
-          return tooltip
-            .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
-            .style("left",((d3.event.pageX)/2+50)+"px");
+            .style("left",((d3.event.pageX)-120)+"px");
         } else {
           return tooltip
-            .style("top", (d3.event.pageY+20)+"px")
-            .style("left",(d3.event.pageX-80)+"px");
+            .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
+            .style("left",((d3.event.pageX)+10)+"px");
         }
+        // if (screen.width <= 480) {
+        //   return tooltip
+        //     .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
+        //     .style("left",((d3.event.pageX)/2+60)+"px");
+        // } else if (screen.width <= 670) {
+        //   return tooltip
+        //     .style("top",(d3.event.pageY+10)+"px")//(d3.event.pageY+40)+"px")
+        //     .style("left",((d3.event.pageX)/2+50)+"px");
+        // } else {
+        //   return tooltip
+        //     .style("top", (d3.event.pageY+20)+"px")
+        //     .style("left",(d3.event.pageX-80)+"px");
+        // }
       })
       .on("mouseout", function(){
         return tooltip.style("visibility", "hidden");
