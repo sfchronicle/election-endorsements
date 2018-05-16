@@ -143,6 +143,7 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
         }
       })
       .on("mouseout", function(){
+        // only mouseout on desktop
         if (screen.width >= 480){
           map_body.classList.remove("noclick");
           tooltip.classList.add("hidden");
@@ -176,6 +177,7 @@ d3.json("https://extras.sfgate.com/editorial/election2018primary/cook_report_hou
 
 });
 
+// close tooltip for mobile
 document.getElementById("close-tooltip").addEventListener("click",function(){
   tooltip.classList.add("hidden");
   map_body.classList.remove("noclick");
