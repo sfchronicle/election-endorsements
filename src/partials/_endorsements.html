@@ -23,6 +23,12 @@
 
 <div class="endorsements-container">
 <% json.sf_chronicle_endorsements_list.endorsements.forEach(function(d,dIDX) { %>
+  <% if (d.Race === "S.F. mayor"){ %>
+    <div class="endorsements-box active SF video-explainer">
+      <div class="race">How does ranked choice voting work?</div>
+      <img src="./assets/graphics/rankedchoice_gif_final.gif"></img>
+    </div>
+  <% } %>
   <% if (d.Race){ %>
     <div class="endorsements-box active <%=d.Tag.replace(',',' ')%> <%=d.Class%>">
       <% if (d.Icon && !d.Candidates) { %>
